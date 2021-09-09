@@ -1,0 +1,196 @@
+<div class="card-body">
+  <form [formGroup]="clientForm">
+      <legend>Basic Product Information</legend>
+
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label"
+               for="productNameId">Client Number</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 type="text"
+                 formControlName="clinetNumber"
+                  />
+          <span class="invalid-feedback">
+            <span  >
+              Client Number is required.
+            </span>
+            <span  >
+              Client number should be whole number and unique
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label"
+               for="productCodeId">Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 type="text"
+                 formControlName="name"
+                 />
+          <span class="invalid-feedback">
+            <span  >
+              Name is required
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label"
+               for="productCodeId">Last Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 type="text"
+                 formControlName="lastName"
+                 />
+          <span class="invalid-feedback">
+            <span  >
+              Name is required
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label"
+               for="productCodeId">Sex</label>
+        <div class="col-md-8">
+          <select class="form-select"
+                  aria-label="Default select example"
+                  formControlName="sex">
+                <option value=""
+                          disabled
+                          selected
+                          hidden>Select a Sex...</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+        </select>
+          <span class="invalid-feedback">
+            <span  >
+              Name is required
+            </span>
+          </span>
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label"
+               for="productCodeId">Personal Number</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 type="text"
+                 formControlName="personalNumber"
+                 />
+          <span class="invalid-feedback">
+            <span  >
+              Name is required
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label"
+               for="productCodeId">Mobile Number</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 type="text"
+                 formControlName="phoneNumber"
+                 />
+          <span class="invalid-feedback">
+            <span  >
+              Mobile Number
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="address" formGroupName="legalAddress">
+        <div class="form-group row">
+        <label class="col-md-2 col-form-label"
+               for="productCodeId">Legal address</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 type="text"
+                 placeholder="Country"
+                 formControlName="country"
+                 />
+          <input class="form-control"
+                 type="text"
+                 placeholder="City"
+                 formControlName="city"
+                 />
+          <input class="form-control"
+                 type="text"
+                 placeholder="street address"
+                 formControlName="street"
+                 />
+          <span class="invalid-feedback">
+            <span  >
+              Mobile Number
+            </span>
+          </span>
+        </div>
+      </div>
+      </div>
+
+
+      <div class="address" formGroupName="livingAddress">
+        <div class="form-group row">
+        <label class="col-md-2 col-form-label"
+               for="productCodeId">Living address</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 type="text"
+                 placeholder="Country"
+                 formControlName="country"
+                 />
+          <input class="form-control"
+                 type="text"
+                 placeholder="City"
+                 formControlName="city"
+                 />
+          <input class="form-control"
+                 type="text"
+                 placeholder="street address"
+                 formControlName="street"
+                 />
+          <span class="invalid-feedback">
+            <span  >
+              Mobile Number
+            </span>
+          </span>
+        </div>
+      </div>
+      </div>
+
+
+  </form>
+</div>
+
+<div class='alert alert-danger'>
+</div>
+
+
+
+<br>client id {{clientForm.get('clinetNumber').value}}
+<br>Name {{clientForm.get('name').value}}
+<br>LastName {{clientForm.get('lastName').value}}
+<br>Sex {{clientForm.get('sex').value}}
+<br>personalNumber {{clientForm.get('personalNumber').value}}
+<br>phoneNumber {{clientForm.get('phoneNumber').value}}
+
+<br>legalAddress
+<br>country {{clientForm.get('legalAddress').get("country").value}}
+<br>city {{clientForm.get('legalAddress').get("city").value}}
+<br>stree {{clientForm.get('legalAddress').get("street").value}}
+<br>
+
+<br>legalAddress
+<br>country {{clientForm.get('livingAddress').get("country").value}}
+<br>city {{clientForm.get('livingAddress').get("city").value}}
+<br>stree {{clientForm.get('livingAddress').get("street").value}}
+<br>
