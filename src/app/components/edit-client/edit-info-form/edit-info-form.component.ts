@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { valMessageForName } from '../validationMessages'
+import { debounceTime } from 'rxjs/operators'
 @Component({
   selector: 'app-edit-info-form',
   templateUrl: './edit-info-form.component.html',
@@ -36,14 +37,17 @@ export class EditInfoFormComponent implements OnInit {
     })
 
     const nameControl = this.clientForm.get('name');
-    nameControl.valueChanges.subscribe(value =>
-      this.setMessageForName(nameControl))
+    nameControl.valueChanges
+      .pipe(
+        debounceTime(500)
+      ).subscribe(value =>
+        this.setMessageForName(nameControl))
 
   }
 
   setMessageForName(c: AbstractControl) {
     this.nameErrorMessage = '';
-    if ((c.touched || c.dirty) && c.errors) {
+    if ((c.touched || c.dirty) && !c.valid) {
       this.nameErrorMessage = Object.keys(c.errors).map(
         key => valMessageForName[key]
       ).join(' ')

@@ -28,24 +28,11 @@
           <input class="form-control"
                  type="text"
                  formControlName="name"
-                 [ngClass]="{'is-invalid': (clientForm.get('name').touched ||
-                                            clientForm.get('name').dirty) &&
-                                            !(clientForm.get('name').valid)}"
+                 [ngClass]="{'is-invalid': nameErrorMessage}"
                  />
           <span class="invalid-feedback">
-            <span  *ngIf="clientForm.get('name').errors?.pattern">
-              შეიყვანეთ მხოლოდ ქართული ან ლათინური ასოები
-            </span>
-             <span  *ngIf="clientForm.get('name').errors?.required">
-              სახელი აუცილებელია
-            </span>
-            <span  *ngIf="!clientForm.get('name').errors?.requiredLength &&
-                          !clientForm.get('name').errors?.required &&
-                          !clientForm.get('name').errors?.pattern">
-              დასაშვებია მინიმუმ 2 ასო და მაქსიმუმ 50 ასო
-            </span>
+            {{nameErrorMessage}}
           </span>
-
         </div>
       </div>
 
@@ -263,13 +250,13 @@
   </form>
 </div>
 
-<div class='alert alert-danger'>
-</div>
+<!-- <div class='alert alert-danger'>
+</div> -->
 
 
-
-<button type="button" (click)="showFormModel()">show form</button>
-
+<!--
+<button type="button" (click)="showFormModel()">show form</button> -->
+<!--
 <br>client id {{clientForm.get('clinetNumber').value}}
 <br>Name {{clientForm.get('name').value}}
 <br>LastName {{clientForm.get('lastName').value}}
@@ -287,4 +274,4 @@
 <br>country {{clientForm.get('livingAddressGroup').get("country").value}}
 <br>city {{clientForm.get('livingAddressGroup').get("city").value}}
 <br>stree {{clientForm.get('livingAddressGroup').get("street").value}}
-<br>
+<br> -->
