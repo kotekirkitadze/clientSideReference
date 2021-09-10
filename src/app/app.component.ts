@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'client-reference';
 
   constructor(private data: DataService) {
-    this.dataM.subscribe(console.log)
+    // this.dataM.subscribe(console.log)
   }
 
   dataM = this.data.data$
