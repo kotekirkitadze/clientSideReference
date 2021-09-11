@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  FormArray,
   FormBuilder,
   FormGroup,
   Validators,
@@ -20,10 +21,12 @@ export class PersonalAccountComponent
     private accountNumberService: AccountNumberService,
     private router: Router) { }
 
-  clientAccountForm;
+  clientAccountFormGroup: FormGroup;
 
   ngOnInit(): void {
-    this.clientAccountForm = this.fb.array([this.buildAccountForm()])
+    this.clientAccountFormGroup = this.fb.group({
+      clientForm: this.fb.array([this.buildAccountForm()])
+    })
   }
 
   buildAccountForm(): FormGroup {
@@ -42,13 +45,24 @@ export class PersonalAccountComponent
     })
   }
 
+  AddForm() {
+    this.getForm.push(this.buildAccountForm())
+  }
+
+  removeAcc(i: number) {
+    this.getForm.removeAt(i)
+  }
+  get getForm(): FormArray | null {
+    return <FormArray>this.clientAccountFormGroup.get('clientForm')
+  }
+
   addAccount() {
-    if (this.clientAccountForm.invalid) {
+    if (this.clientAccountFormGroup.invalid) {
       console.log('form is invalid')
       return null
     }
 
-    const formValue = this.clientAccountForm?.value;
+    const formValue = this.clientAccountFormGroup?.value;
 
     const forPosting: AccountNumber = {
       accountNumber: formValue?.accountNumber,

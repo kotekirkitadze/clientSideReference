@@ -1,4 +1,4 @@
-<!-- <div class="card">
+<div class="card">
   <div class="card-header">
     Account Requisites
   </div>
@@ -8,8 +8,14 @@
       <a> Client Information </a>
     </div>
     <div class="card-body">
-      <form [formGroup]="clientAccountForm">
-        <legend>Basic Product Information</legend>
+      <form [formGroup]="clientAccountFormGroup">
+        <div formArrayName="clientForm"
+          *ngFor="let element of getForm.controls; let i = index">
+          <div [formGroupName]="i">
+            <legend>Account N{{i+1}} information:</legend>
+            <button *ngIf="i !== 0"
+            class="btn btn-danger"
+                    (click)="removeAcc(i)">Remove this Account Number</button>
         <div class="form-group row">
           <label
             class="col-md-2 col-form-label"
@@ -76,7 +82,7 @@
                 selected
                 hidden
               >
-                Select a Sex...
+                Select Account Type...
               </option>
               <option value="current">
                 Current
@@ -112,7 +118,7 @@
                 selected
                 hidden
               >
-                Select a Sex...
+                Select a Currency...
               </option>
               <option value="GEL">GEL</option>
               <option value="USD">USD</option>
@@ -143,7 +149,7 @@
                 selected
                 hidden
               >
-                Select a Sex...
+                Select Account Status...
               </option>
               <option value="Acctive">
                 Active
@@ -155,6 +161,8 @@
             <span class="invalid-feedback">
               <span> Name is required </span>
             </span>
+          </div>
+        </div>
           </div>
         </div>
       </form>
@@ -175,6 +183,7 @@
           style="width: 80px"
           type="button"
           title="Cancel your edits"
+          (click)="AddForm()"
         >
           + One
         </button>
@@ -191,4 +200,4 @@
   </div>
 </div>
 
-<div class="alert alert-danger" *ngIf=""></div> -->
+<div class="alert alert-danger" *ngIf=""></div>
