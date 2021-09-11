@@ -13,6 +13,8 @@ import { EditInfoFormComponent } from './components/edit-client/edit-info-form/e
 import { WelcomeComponent } from './shell/header/welcome/welcome.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PersonalAccountComponent } from './components/personal-account/personal-account.component';
+import { PageNotFoundComponent } from './shell/header/page-not-found/page-not-found.component';
+import { ClientDetailComponent } from './components/client-detail/client-detail.component';
 // import { ClientListComponent } from './components/client-list/client-list.component';
 
 @NgModule({
@@ -23,7 +25,9 @@ import { PersonalAccountComponent } from './components/personal-account/personal
     EditClientComponent,
     EditInfoFormComponent,
     WelcomeComponent,
-    PersonalAccountComponent
+    PersonalAccountComponent,
+    PageNotFoundComponent,
+    ClientDetailComponent
   ],
   imports: [
     BrowserModule,

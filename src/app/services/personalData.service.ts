@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { combineLatest, Observable, of } from "rxjs";
-import { map, switchMap } from "rxjs/operators";
+import { filter, map, shareReplay, switchMap } from "rxjs/operators";
 import { Client } from "../models/client-model";
 import { AccountNumberService } from "./account-number.service";
 
@@ -25,6 +25,22 @@ export class PersonalDataService {
       .pipe(switchMap(d => this.accountNumberService.deleteAccount(id)));
   }
 
+  getClient(id: number): Observable<Client> {
+    return this.http.get<Client>(`${this.apiUrl}/${id}`)
+      .pipe(
+        switchMap(client => {
+          return this.accountNumberService.accountData$.pipe(
+            map(accountData => {
+              return {
+                ...client,
+                accData: accountData.filter(acc => acc.id == client.id).map(d => d.clientAccData)
+              }
+            })
+          )
+        })
+      )
+  }
+
   clients$ = this.http.get<Client[]>(this.apiUrl)
 
   clientsWithAccountNum$ = combineLatest([
@@ -40,10 +56,12 @@ export class PersonalDataService {
       })
     })
   )
+
+
+
 }
 
 
 
-// accType: accounts.filter(acc => acc.id = client.id).map(d => ({
-//   clientAccData: d.clientAccData
-// }))
+
+

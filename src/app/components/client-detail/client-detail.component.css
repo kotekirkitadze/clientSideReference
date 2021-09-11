@@ -1,0 +1,13 @@
+.accCard {
+  width: 49%;
+}
+
+.accountInfo{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 20px auto;
+  gap: 2%;
+}
+
+

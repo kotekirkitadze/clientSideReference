@@ -65,15 +65,17 @@
             <td>
               <button
                 class="
-                  btn btn-outline-primary btn-sm
+                  btn-primary btn-sm
                 "
-                [routerLink]="[
-                  '/products',
-                  client.id,
-                  'edit'
-                ]"
+                [routerLink]="['/client', client.id, 'edit']"
               >
                 Edit
+              </button>
+              <button
+                class="btn btn-info btn-sm"
+                [routerLink]="['/clients', client.id]"
+              >
+                Detail
               </button>
               <button
                 class="btn btn-danger btn-sm"
