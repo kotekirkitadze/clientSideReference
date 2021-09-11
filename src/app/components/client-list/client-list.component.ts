@@ -14,7 +14,7 @@ export class ClientListComponent
   constructor(private personalDataService: PersonalDataService) { }
 
   ngOnInit(): void {
-    this.clients$ = this.personalDataService.clientsWithAccountNum$;
+    this.clients$ = this.personalDataService.getAllClientsInfo();
 
     this.personalDataService.clientsWithAccountNum$.subscribe(
       d => console.log("mapped data: ", d)
@@ -25,10 +25,10 @@ export class ClientListComponent
   deleteClient(id: number) {
     this.personalDataService
       .deleteClient(id)
-      .subscribe(() =>
-        console.log(
-          `Client with id ${id} has been deleted`
-        )
+      .subscribe(() => {
+        console.log(`Client with id ${id} has been deleted`);
+        this.clients$ = this.personalDataService.getAllClientsInfo()
+      }
       );
   }
 }

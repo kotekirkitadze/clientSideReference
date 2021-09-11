@@ -7,7 +7,7 @@ export interface Client {
   phoneNumber: number;
   legalAddress: Address;
   livingAddress: Address;
-  accData?: any[];
+  accData?: any;
 }
 
 interface Address {

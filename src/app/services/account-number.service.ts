@@ -19,5 +19,13 @@ export class AccountNumberService {
     return this.http.delete<AccountNumber>(`${this.apiUrl}/${id}`)
   }
 
+  deleteSelectedAccount(upDateValue) {
+    return this.http.put<AccountNumber>(`${this.apiUrl}/${upDateValue.id}`, upDateValue)
+  }
+
+  getAccountData() {
+    return this.http.get<AccountNumber[]>(this.apiUrl);
+  }
+
   accountData$ = this.http.get<AccountNumber[]>(this.apiUrl);
 }

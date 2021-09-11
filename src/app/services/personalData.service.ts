@@ -29,11 +29,11 @@ export class PersonalDataService {
     return this.http.get<Client>(`${this.apiUrl}/${id}`)
       .pipe(
         switchMap(client => {
-          return this.accountNumberService.accountData$.pipe(
+          return this.accountNumberService.getAccountData().pipe(
             map(accountData => {
               return {
                 ...client,
-                accData: accountData.filter(acc => acc.id == client.id).map(d => d.clientAccData)
+                accData: accountData.filter(acc => acc.id == client.id).map(d => d.clientAccData)[0]
               }
             })
           )
@@ -42,6 +42,23 @@ export class PersonalDataService {
   }
 
   clients$ = this.http.get<Client[]>(this.apiUrl)
+
+
+  getAllClientsInfo() {
+    return combineLatest([
+      this.clients$,
+      this.accountNumberService.accountData$
+    ]).pipe(
+      map(([clients, accounts]) => {
+        return clients.map(client => {
+          return {
+            ...client,
+            accData: accounts.filter(acc => acc.id == client.id).map(d => d.clientAccData)[0]
+          }
+        })
+      })
+    )
+  }
 
   clientsWithAccountNum$ = combineLatest([
     this.clients$,
@@ -56,8 +73,6 @@ export class PersonalDataService {
       })
     })
   )
-
-
 
 }
 
