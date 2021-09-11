@@ -10,10 +10,9 @@ import { HeaderComponent } from './shell/header/header.component';
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { EditClientComponent } from './components/edit-client/edit-client.component';
 import { EditInfoFormComponent } from './components/edit-client/edit-info-form/edit-info-form.component';
-import { AccountRequisitesComponent } from './components/edit-client/account-requisites/account-requisites.component';
 import { WelcomeComponent } from './shell/header/welcome/welcome.component';
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { PersonalAccountComponent } from './components/personal-account/personal-account.component';
 // import { ClientListComponent } from './components/client-list/client-list.component';
 
 @NgModule({
@@ -23,8 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
     ClientListComponent,
     EditClientComponent,
     EditInfoFormComponent,
-    AccountRequisitesComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    PersonalAccountComponent
   ],
   imports: [
     BrowserModule,

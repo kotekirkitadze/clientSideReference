@@ -1,283 +1,491 @@
 <div class="card-body">
   <form [formGroup]="clientForm">
-      <legend>Basic Product Information</legend>
+    <legend>Basic Product Information</legend>
 
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label"
-               for="productNameId">Client Number</label>
-        <div class="col-md-8">
-          <input class="form-control"
-                 type="text"
-                 formControlName="clinetNumber"
-                  />
-          <span class="invalid-feedback">
-            <span  >
-              Client Number is required.
-            </span>
-            <span  >
-              Client number should be whole number and unique
-            </span>
+    <div class="form-group row">
+      <label
+        class="col-md-2 col-form-label"
+        for="productNameId"
+        >Client Number</label
+      >
+      <div class="col-md-8">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="clinetNumber"
+        />
+        <span class="invalid-feedback">
+          <span>
+            Client Number is required.
           </span>
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label"
-               for="productCodeId">Name</label>
-        <div class="col-md-8">
-          <input class="form-control"
-                 type="text"
-                 formControlName="name"
-                 [ngClass]="{'is-invalid': nameErrorMessage}"
-                 />
-          <span class="invalid-feedback">
-            {{nameErrorMessage}}
+          <span>
+            Client number should be whole number
+            and unique
           </span>
-        </div>
+        </span>
       </div>
+    </div>
 
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label"
-               for="productCodeId">Last Name</label>
-        <div class="col-md-8">
-          <input class="form-control"
-                 type="text"
-                 formControlName="lastName"
-                 [ngClass]="{'is-invalid': (clientForm.get('lastName').touched ||
-                                            clientForm.get('lastName').dirty) &&
-                                            !(clientForm.get('lastName').valid)}"
-                 />
-          <span class="invalid-feedback">
-            <span  *ngIf="clientForm.get('lastName').errors?.pattern">
-              შეიყვანეთ მხოლოდ ქართული ან ლათინური ასოები
-            </span>
-             <span  *ngIf="clientForm.get('lastName').errors?.required">
-              გვარი აუცილებელია
-            </span>
-            <span  *ngIf="!clientForm.get('lastName').errors?.requiredLength &&
-                          !clientForm.get('lastName').errors?.required &&
-                          !clientForm.get('lastName').errors?.pattern">
-              დასაშვებია მინიმუმ 2 ასო და მაქსიმუმ 50 ასო
-            </span>
+    <div class="form-group row">
+      <label
+        class="col-md-2 col-form-label"
+        for="productCodeId"
+        >Name</label
+      >
+      <div class="col-md-8">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="name"
+          [ngClass]="{
+            'is-invalid': nameErrorMessage
+          }"
+        />
+        <span class="invalid-feedback">
+          {{ nameErrorMessage }}
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label
+        class="col-md-2 col-form-label"
+        for="productCodeId"
+        >Last Name</label
+      >
+      <div class="col-md-8">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="lastName"
+          [ngClass]="{
+            'is-invalid':
+              (clientForm.get('lastName')
+                .touched ||
+                clientForm.get('lastName')
+                  .dirty) &&
+              !clientForm.get('lastName').valid
+          }"
+        />
+        <span class="invalid-feedback">
+          <span
+            *ngIf="
+              clientForm.get('lastName').errors
+                ?.pattern
+            "
+          >
+            შეიყვანეთ მხოლოდ ქართული ან ლათინური
+            ასოები
           </span>
-        </div>
+          <span
+            *ngIf="
+              clientForm.get('lastName').errors
+                ?.required
+            "
+          >
+            გვარი აუცილებელია
+          </span>
+          <span
+            *ngIf="
+              !clientForm.get('lastName').errors
+                ?.requiredLength &&
+              !clientForm.get('lastName').errors
+                ?.required &&
+              !clientForm.get('lastName').errors
+                ?.pattern
+            "
+          >
+            დასაშვებია მინიმუმ 2 ასო და მაქსიმუმ
+            50 ასო
+          </span>
+        </span>
       </div>
+    </div>
 
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label"
-               for="productCodeId">Sex</label>
-        <div class="col-md-8">
-          <select class="form-select"
-                  aria-label="Default select example"
-                  formControlName="sex">
-                <option value=""
-                          disabled
-                          selected
-                          hidden>Select a Sex...</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+    <div class="form-group row">
+      <label
+        class="col-md-2 col-form-label"
+        for="productCodeId"
+        >Sex</label
+      >
+      <div class="col-md-8">
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="sex"
+        >
+          <option
+            value=""
+            disabled
+            selected
+            hidden
+          >
+            Select a Sex...
+          </option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
-          <span class="invalid-feedback">
-            <span  >
-              Name is required
-            </span>
-          </span>
-        </div>
+        <span class="invalid-feedback">
+          <span> Name is required </span>
+        </span>
       </div>
+    </div>
 
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label"
-               for="productCodeId">Personal Number</label>
-        <div class="col-md-8">
-          <input class="form-control"
-                 type="text"
-                 formControlName="personalNumber"
-                 [ngClass]="{'is-invalid': (clientForm.get('personalNumber').touched ||
-                                            clientForm.get('personalNumber').dirty) &&
-                                            !(clientForm.get('personalNumber').valid)}"
-                 />
-          <span class="invalid-feedback">
-            <span  *ngIf="clientForm.get('personalNumber').errors?.pattern &&
-                !clientForm.get('lastName').errors?.requiredLength">
-             დასაშვებია მხოლოდ ციფრები
-            </span>
-             <span  *ngIf="clientForm.get('personalNumber').errors?.required">
-              პირადი ნომერი აუცილებელია
-            </span>
-            <span  *ngIf="!clientForm.get('lastName').errors?.requiredLength &&
-
-                          !clientForm.get('lastName').errors?.pattern">
-              პირადი ნომერი უნდა იყოს 11 ციფრი
-            </span>
+    <div class="form-group row">
+      <label
+        class="col-md-2 col-form-label"
+        for="productCodeId"
+        >Personal Number</label
+      >
+      <div class="col-md-8">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="personalNumber"
+          [ngClass]="{
+            'is-invalid':
+              (clientForm.get('personalNumber')
+                .touched ||
+                clientForm.get('personalNumber')
+                  .dirty) &&
+              !clientForm.get('personalNumber')
+                .valid
+          }"
+        />
+        <span class="invalid-feedback">
+          <span
+            *ngIf="
+              clientForm.get('personalNumber')
+                .errors?.pattern &&
+              !clientForm.get('lastName').errors
+                ?.requiredLength
+            "
+          >
+            დასაშვებია მხოლოდ ციფრები
           </span>
-        </div>
+          <span
+            *ngIf="
+              clientForm.get('personalNumber')
+                .errors?.required
+            "
+          >
+            პირადი ნომერი აუცილებელია
+          </span>
+          <span
+            *ngIf="
+              !clientForm.get('lastName').errors
+                ?.requiredLength &&
+              !clientForm.get('lastName').errors
+                ?.pattern
+            "
+          >
+            პირადი ნომერი უნდა იყოს 11 ციფრი
+          </span>
+        </span>
       </div>
+    </div>
 
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label"
-               for="productCodeId">Mobile Number</label>
-        <div class="col-md-8">
-          <input class="form-control"
-                 type="text"
-                 formControlName="phoneNumber"
-                [ngClass]="{'is-invalid': (clientForm.get('phoneNumber').touched ||
-                                            clientForm.get('phoneNumber').dirty) &&
-                                            !(clientForm.get('phoneNumber').valid)}"
-                 />
-          <span class="invalid-feedback">
-            <span  *ngIf="clientForm.get('phoneNumber').errors?.notStartWithFive
-            && !clientForm.get('phoneNumber').errors?.required">
-             ნომერი უნდა იწყებოდეს 5-იანით
-            </span>
-            <span  *ngIf="clientForm.get('phoneNumber').errors?.required &&
-                clientForm.get('phoneNumber').errors?.notStartWithFive">
-             ნომერი აუცილებელია
-            </span>
-            <!-- <span  *ngIf="clientForm.get('phoneNumber').errors?.required &&
+    <div class="form-group row">
+      <label
+        class="col-md-2 col-form-label"
+        for="productCodeId"
+        >Mobile Number</label
+      >
+      <div class="col-md-8">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="phoneNumber"
+          [ngClass]="{
+            'is-invalid':
+              (clientForm.get('phoneNumber')
+                .touched ||
+                clientForm.get('phoneNumber')
+                  .dirty) &&
+              !clientForm.get('phoneNumber').valid
+          }"
+        />
+        <span class="invalid-feedback">
+          <span
+            *ngIf="
+              clientForm.get('phoneNumber').errors
+                ?.notStartWithFive &&
+              !clientForm.get('phoneNumber')
+                .errors?.required
+            "
+          >
+            ნომერი უნდა იწყებოდეს 5-იანით
+          </span>
+          <span
+            *ngIf="
+              clientForm.get('phoneNumber').errors
+                ?.required &&
+              clientForm.get('phoneNumber').errors
+                ?.notStartWithFive
+            "
+          >
+            ნომერი აუცილებელია
+          </span>
+          <!-- <span  *ngIf="clientForm.get('phoneNumber').errors?.required &&
                 clientForm.get('phoneNumber').errors?.notStartWithFive &&
                 clientForm.get('phoneNumber').errors?.required">
              აუცილებელია მინიმუმ 9 ციფრი
             </span> -->
-          </span>
-        </div>
+        </span>
       </div>
+    </div>
 
-      <div class="address" formGroupName="legalAddressGroup">
-        <div class="form-group row">
-        <label class="col-md-2 col-form-label"
-               for="productCodeId">Legal address</label>
+    <div
+      class="address"
+      formGroupName="legalAddressGroup"
+    >
+      <div class="form-group row">
+        <label
+          class="col-md-2 col-form-label"
+          for="productCodeId"
+          >Legal address</label
+        >
         <div class="col-md-8">
-          <input class="form-control"
-                 type="text"
-                 placeholder="Country"
-                 formControlName="country"
-                 [ngClass]="{'is-invalid': (clientForm.get('legalAddressGroup.country').touched ||
-                                            clientForm.get('legalAddressGroup.country').dirty) &&
-                                            !(clientForm.get('legalAddressGroup.country').valid)}"
-                 />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Country"
+            formControlName="country"
+            [ngClass]="{
+              'is-invalid':
+                (clientForm.get(
+                  'legalAddressGroup.country'
+                ).touched ||
+                  clientForm.get(
+                    'legalAddressGroup.country'
+                  ).dirty) &&
+                !clientForm.get(
+                  'legalAddressGroup.country'
+                ).valid
+            }"
+          />
           <span class="invalid-feedback">
-            <span  *ngIf="clientForm.get('legalAddressGroup.country').errors?.required">
+            <span
+              *ngIf="
+                clientForm.get(
+                  'legalAddressGroup.country'
+                ).errors?.required
+              "
+            >
               ქვეყანა აუცილებელია
             </span>
           </span>
-          <input class="form-control"
-                 type="text"
-                 placeholder="City"
-                 formControlName="city"
-                 [ngClass]="{'is-invalid': (clientForm.get('legalAddressGroup.city').touched ||
-                                            clientForm.get('legalAddressGroup.city').dirty) &&
-                                            !(clientForm.get('legalAddressGroup.city').valid)}"
-                 />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="City"
+            formControlName="city"
+            [ngClass]="{
+              'is-invalid':
+                (clientForm.get(
+                  'legalAddressGroup.city'
+                ).touched ||
+                  clientForm.get(
+                    'legalAddressGroup.city'
+                  ).dirty) &&
+                !clientForm.get(
+                  'legalAddressGroup.city'
+                ).valid
+            }"
+          />
           <span class="invalid-feedback">
-            <span  *ngIf="clientForm.get('legalAddressGroup.city').errors?.required &&
-            clientForm.get('legalAddressGroup.city').touched">
+            <span
+              *ngIf="
+                clientForm.get(
+                  'legalAddressGroup.city'
+                ).errors?.required &&
+                clientForm.get(
+                  'legalAddressGroup.city'
+                ).touched
+              "
+            >
               ქალაქი აუცილებელია
             </span>
           </span>
 
-          <input class="form-control"
-                 type="text"
-                 placeholder="street address"
-                 formControlName="street"
-                 [ngClass]="{'is-invalid': (clientForm.get('legalAddressGroup.street').touched ||
-                                            clientForm.get('legalAddressGroup.street').dirty) &&
-                                            !(clientForm.get('legalAddressGroup.street').valid)}"
-                 />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="street address"
+            formControlName="street"
+            [ngClass]="{
+              'is-invalid':
+                (clientForm.get(
+                  'legalAddressGroup.street'
+                ).touched ||
+                  clientForm.get(
+                    'legalAddressGroup.street'
+                  ).dirty) &&
+                !clientForm.get(
+                  'legalAddressGroup.street'
+                ).valid
+            }"
+          />
           <span class="invalid-feedback">
-            <span  *ngIf="clientForm.get('legalAddressGroup.street').errors?.required &&
-            clientForm.get('legalAddressGroup.street').touched">
+            <span
+              *ngIf="
+                clientForm.get(
+                  'legalAddressGroup.street'
+                ).errors?.required &&
+                clientForm.get(
+                  'legalAddressGroup.street'
+                ).touched
+              "
+            >
               ქუჩა აუცილებელია
             </span>
           </span>
         </div>
       </div>
-      </div>
+    </div>
 
-      <div class="address" formGroupName="livingAddressGroup">
-        <div class="form-group row">
-        <label class="col-md-2 col-form-label"
-               for="productCodeId">Living address</label>
+    <div
+      class="address"
+      formGroupName="livingAddressGroup"
+    >
+      <div class="form-group row">
+        <label
+          class="col-md-2 col-form-label"
+          for="productCodeId"
+          >Living address</label
+        >
         <div class="col-md-8">
-          <input class="form-control"
-                 type="text"
-                 placeholder="Country"
-                 formControlName="country"
-                 [ngClass]="{'is-invalid': (clientForm.get('livingAddressGroup.country').touched ||
-                                            clientForm.get('livingAddressGroup.country').dirty) &&
-                                            !(clientForm.get('livingAddressGroup.country').valid)}"
-
-                 />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Country"
+            formControlName="country"
+            [ngClass]="{
+              'is-invalid':
+                (clientForm.get(
+                  'livingAddressGroup.country'
+                ).touched ||
+                  clientForm.get(
+                    'livingAddressGroup.country'
+                  ).dirty) &&
+                !clientForm.get(
+                  'livingAddressGroup.country'
+                ).valid
+            }"
+          />
           <span class="invalid-feedback">
-            <span  *ngIf="clientForm.get('livingAddressGroup.country').errors?.required">
+            <span
+              *ngIf="
+                clientForm.get(
+                  'livingAddressGroup.country'
+                ).errors?.required
+              "
+            >
               ქვეყანა აუცილებელია
             </span>
           </span>
-          <input class="form-control"
-                 type="text"
-                 placeholder="City"
-                 formControlName="city"
-                [ngClass]="{'is-invalid': (clientForm.get('livingAddressGroup.city').touched ||
-                                            clientForm.get('livingAddressGroup.city').dirty) &&
-                                            !(clientForm.get('livingAddressGroup.city').valid)}"
-
-                 />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="City"
+            formControlName="city"
+            [ngClass]="{
+              'is-invalid':
+                (clientForm.get(
+                  'livingAddressGroup.city'
+                ).touched ||
+                  clientForm.get(
+                    'livingAddressGroup.city'
+                  ).dirty) &&
+                !clientForm.get(
+                  'livingAddressGroup.city'
+                ).valid
+            }"
+          />
           <span class="invalid-feedback">
-            <span  *ngIf="clientForm.get('livingAddressGroup.city').errors?.required &&
-            clientForm.get('livingAddressGroup.city').touched">
+            <span
+              *ngIf="
+                clientForm.get(
+                  'livingAddressGroup.city'
+                ).errors?.required &&
+                clientForm.get(
+                  'livingAddressGroup.city'
+                ).touched
+              "
+            >
               ქალაქი აუცილებელია
             </span>
           </span>
 
-          <input class="form-control"
-                 type="text"
-                 placeholder="street address"
-                 formControlName="street"
-                 [ngClass]="{'is-invalid': (clientForm.get('livingAddressGroup.street').touched ||
-                                            clientForm.get('livingAddressGroup.street').dirty) &&
-                                            !(clientForm.get('livingAddressGroup.street').valid)}"
-
-                 />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="street address"
+            formControlName="street"
+            [ngClass]="{
+              'is-invalid':
+                (clientForm.get(
+                  'livingAddressGroup.street'
+                ).touched ||
+                  clientForm.get(
+                    'livingAddressGroup.street'
+                  ).dirty) &&
+                !clientForm.get(
+                  'livingAddressGroup.street'
+                ).valid
+            }"
+          />
           <span class="invalid-feedback">
-            <span  *ngIf="clientForm.get('livingAddressGroup.street').errors?.required &&
-            clientForm.get('livingAddressGroup.street').touched">
+            <span
+              *ngIf="
+                clientForm.get(
+                  'livingAddressGroup.street'
+                ).errors?.required &&
+                clientForm.get(
+                  'livingAddressGroup.street'
+                ).touched
+              "
+            >
               ქუჩა აუცილებელია
             </span>
           </span>
         </div>
       </div>
-      </div>
-
+    </div>
   </form>
   <div class="row mb-2">
-        <div class="col-md-4">
-          <button class="btn btn-primary mr-3"
-                  style="width:80px"
-                  type="button"
-                  title='Save your entered data'
-                  (click)="addClient()" >
-            Save
-          </button>
-          <button class="btn btn-outline-secondary mr-3"
-                  style="width:80px"
-                  type="button"
-                  title="Cancel your edits"
-                   >
-            Cancel
-          </button>
-          <button class="btn btn-outline-warning"
-                  style="width:80px"
-                  type="button"
-                  title="Delete this product"
-                  >
-            Delete
-          </button>
-        </div>
-      </div>
+    <div class="col-md-4">
+      <button
+        class="btn btn-primary mr-3"
+        style="width: 80px"
+        type="button"
+        title="Save your entered data"
+        (click)="addClient()"
+      >
+        Save
+      </button>
+      <button
+        class="btn btn-outline-secondary mr-3"
+        style="width: 80px"
+        type="button"
+        title="Cancel your edits"
+      >
+        Cancel
+      </button>
+      <button
+        class="btn btn-outline-warning"
+        style="width: 80px"
+        type="button"
+        title="Delete this product"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
 </div>
 
 <!-- <div class='alert alert-danger'>
 </div> -->
-
 
 <!--
 <button type="button" (click)="showFormModel()">show form</button> -->

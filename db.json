@@ -1,3 +1,30 @@
 {
-  "clients": []
+  "clients": [
+    {
+      "id": "1",
+      "name": "კონსტანტინე",
+      "lastName": "კირკიტაძე",
+      "personalNumber": "18001068379",
+      "phoneNumber": "598700248",
+      "sex": "Male",
+      "legalAddress": {
+        "country": "საქართველო",
+        "city": "ზესტაფონი",
+        "streetAddress": "სადგური სვირი"
+      },
+      "livingAddress": {
+        "country": "საქართველო",
+        "city": "თბილისი",
+        "streetAddress": "ცოტნე დადიანის #261"
+      }
+    }
+  ],
+  "accounts": [
+    {
+      "accountStatus": "Acctive",
+      "accountType": "current",
+      "clientNumber": "1",
+      "id": 1
+    }
+  ]
 }

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +8,7 @@ import { DataService } from './services/data.service';
 export class AppComponent {
   title = 'client-reference';
 
-  constructor(private data: DataService) {
-    // this.dataM.subscribe(console.log)
+  constructor() {
   }
-
-
-
 
 }

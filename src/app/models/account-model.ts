@@ -1,4 +1,4 @@
-interface AccountNumber {
+export interface AccountNumber {
   accountNumber: number;
   clientNumber: number;
   accountType: myAccountType;
@@ -9,7 +9,7 @@ interface AccountNumber {
 enum myAccountType {
   Current = "current",
   Economical = "economical",
-  Accumulative = "Accumulative"
+  Accumulative = "accumulative"
 }
 
 enum currencyType {
