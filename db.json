@@ -1,4 +1,82 @@
 {
-  "clients": [],
-  "accounts": []
+  "clients": [
+    {
+      "id": "1",
+      "name": "kote",
+      "lastName": "kirktiadze",
+      "personalNumber": "12121212121",
+      "phoneNumber": "5987151516",
+      "sex": "Male",
+      "legalAddress": {
+        "country": "5987151516",
+        "city": "5987151516",
+        "streetAddress": "5987151516"
+      },
+      "livingAddress": {
+        "country": "5987151516",
+        "city": "5987151516",
+        "streetAddress": "5987151516"
+      }
+    },
+    {
+      "id": "2",
+      "name": "kote",
+      "lastName": "kirktiadze",
+      "personalNumber": "12121212121",
+      "phoneNumber": "5987151516",
+      "sex": "Male",
+      "legalAddress": {
+        "country": "5987151516",
+        "city": "5987151516",
+        "streetAddress": "5987151516"
+      },
+      "livingAddress": {
+        "country": "5987151516",
+        "city": "5987151516",
+        "streetAddress": "5987151516"
+      }
+    }
+  ],
+  "accounts": [
+    {
+      "id": "1",
+      "clientAccData": [
+        {
+          "accNumber": "1wqwq",
+          "accountType": "current",
+          "currencyType": "USD",
+          "accountStatus": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "clientAccData": [
+        {
+          "accNumber": "1wqwq",
+          "accountType": "current",
+          "currencyType": "USD",
+          "accountStatus": "Closed"
+        },
+        {
+          "accNumber": "432232",
+          "accountType": "current",
+          "currencyType": "USD",
+          "accountStatus": "Closed"
+        },
+        {
+          "accNumber": "dddd",
+          "accountType": "current",
+          "currencyType": "USD",
+          "accountStatus": "Closed"
+        },
+        {
+          "accNumber": "qw2121",
+          "accountType": "economical",
+          "currencyType": "USD",
+          "accountStatus": "Acctive"
+        }
+      ]
+    }
+  ]
 }
