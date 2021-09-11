@@ -1,5 +1,5 @@
-interface ClientModel {
-  clientNumber: number;
+export interface Client {
+  id: number;
   name: string;
   lastName: string;
   sex: Sex;

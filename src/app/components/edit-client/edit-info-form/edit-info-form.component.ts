@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { valMessageForName } from '../validationMessages'
 import { debounceTime } from 'rxjs/operators'
+import { DataService } from 'src/app/services/data.service';
+
+import { Client } from '../../../models/client-model'
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-edit-info-form',
   templateUrl: './edit-info-form.component.html',
@@ -11,7 +16,9 @@ export class EditInfoFormComponent implements OnInit {
   clientForm: FormGroup;
   nameErrorMessage: string;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    private dataService: DataService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.clientForm = this.fb.group({
@@ -43,6 +50,43 @@ export class EditInfoFormComponent implements OnInit {
       ).subscribe(value =>
         this.setMessageForName(nameControl))
 
+  }
+
+  addClient() {
+    const formValue = this.clientForm?.value
+    if (this.clientForm.invalid) {
+      console.log("invalid form");
+      console.log(formValue?.legalAddressGroup)
+      return null
+    }
+
+
+    console.log(formValue?.legalAddress?.country)
+    const forPosting: Client = {
+      id: formValue?.clinetNumber,
+      name: formValue?.name,
+      lastName: formValue?.lastName,
+      personalNumber: formValue?.personalNumber,
+      phoneNumber: formValue?.phoneNumber,
+      sex: formValue?.sex,
+      legalAddress: {
+        country: formValue?.legalAddressGroup?.country,
+        city: formValue?.legalAddressGroup?.city,
+        streetAddress: formValue?.legalAddressGroup?.street
+      },
+      livingAddress: {
+        country: formValue?.livingAddressGroup?.country,
+        city: formValue?.livingAddressGroup?.city,
+        streetAddress: formValue?.livingAddressGroup?.street
+      }
+
+    }
+
+    this.dataService.addClient(forPosting)
+      .subscribe(d => {
+        console.log('posted executed: ', d),
+          this.router.navigate(['/clients'])
+      });
   }
 
   setMessageForName(c: AbstractControl) {

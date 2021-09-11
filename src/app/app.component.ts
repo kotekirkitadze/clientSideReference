@@ -13,7 +13,7 @@ export class AppComponent {
     // this.dataM.subscribe(console.log)
   }
 
-  dataM = this.data.data$
+
 
 
 }
