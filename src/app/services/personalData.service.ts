@@ -1,7 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { combineLatest, Observable, of } from "rxjs";
+import { map, switchMap } from "rxjs/operators";
 import { Client } from "../models/client-model";
+import { AccountNumberService } from "./account-number.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,8 @@ import { Client } from "../models/client-model";
 export class PersonalDataService {
   private apiUrl = 'http://localhost:5000/clients'
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+    private accountNumberService: AccountNumberService) {
 
   }
 
@@ -18,8 +21,29 @@ export class PersonalDataService {
   }
 
   deleteClient(id: number) {
-    return this.http.delete<Client>(`${this.apiUrl}/${id}`);
+    return this.http.delete<Client>(`${this.apiUrl}/${id}`)
+      .pipe(switchMap(d => this.accountNumberService.deleteAccount(id)));
   }
 
   clients$ = this.http.get<Client[]>(this.apiUrl)
+
+  clientsWithAccountNum$ = combineLatest([
+    this.clients$,
+    this.accountNumberService.accountData$
+  ]).pipe(
+    map(([clients, accounts]) => {
+      return clients.map(client => {
+        return {
+          ...client,
+          accData: accounts.filter(acc => acc.id == client.id).map(d => d.clientAccData)
+        }
+      })
+    })
+  )
 }
+
+
+
+// accType: accounts.filter(acc => acc.id = client.id).map(d => ({
+//   clientAccData: d.clientAccData
+// }))

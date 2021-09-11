@@ -1,9 +1,11 @@
 export interface AccountNumber {
-  accountNumber: number;
-  clientNumber: number;
-  accountType: myAccountType;
-  currency: currencyType;
-  accountStatus: accType;
+  id: number;
+  clientAccData: {
+    accountNumber: number;
+    accountType: myAccountType;
+    currency: currencyType;
+    accountStatus: accType;
+  }
 }
 
 enum myAccountType {
@@ -19,7 +21,8 @@ enum currencyType {
   RUB = 'RUB'
 }
 
-enum accType {
+export enum accType {
   Active = 'Active',
   Closed = 'Closed'
 }
+

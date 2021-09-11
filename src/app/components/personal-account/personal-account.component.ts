@@ -25,17 +25,17 @@ export class PersonalAccountComponent
 
   ngOnInit(): void {
     this.clientAccountFormGroup = this.fb.group({
-      clientForm: this.fb.array([this.buildAccountForm()])
+      clientNumber: [
+        '',
+        Validators.required
+      ],
+      clientAccData: this.fb.array([this.buildAccountForm()])
     })
   }
 
   buildAccountForm(): FormGroup {
     return this.fb.group({
       accNumber: [
-        '',
-        Validators.required
-      ],
-      clientNumber: [
         '',
         Validators.required
       ],
@@ -53,7 +53,7 @@ export class PersonalAccountComponent
     this.getForm.removeAt(i)
   }
   get getForm(): FormArray | null {
-    return <FormArray>this.clientAccountFormGroup.get('clientForm')
+    return <FormArray>this.clientAccountFormGroup.get('clientAccData')
   }
 
   addAccount() {
@@ -63,14 +63,14 @@ export class PersonalAccountComponent
     }
 
     const formValue = this.clientAccountFormGroup?.value;
+    const nestedForm = this.clientAccountFormGroup?.get('clientAccData').value
 
-    const forPosting: AccountNumber = {
-      accountNumber: formValue?.accountNumber,
-      accountStatus: formValue?.accountStatus,
-      accountType: formValue?.accountType,
-      currency: formValue?.currency,
-      clientNumber: formValue?.clientNumber
+    const forPosting = {
+      id: formValue?.clientNumber,
+      clientAccData: nestedForm
     }
+
+
 
     this.accountNumberService.addAccountNumber(forPosting).subscribe(
       data => {

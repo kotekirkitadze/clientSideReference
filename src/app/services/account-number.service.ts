@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { AccountNumber } from "../models/account-model";
 
 @Injectable({
@@ -13,4 +14,10 @@ export class AccountNumberService {
   addAccountNumber(accountNumber: AccountNumber) {
     return this.http.post<AccountNumber>(this.apiUrl, accountNumber)
   }
+
+  deleteAccount(id: number) {
+    return this.http.delete<AccountNumber>(`${this.apiUrl}/${id}`)
+  }
+
+  accountData$ = this.http.get<AccountNumber[]>(this.apiUrl);
 }

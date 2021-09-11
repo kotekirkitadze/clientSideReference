@@ -9,7 +9,33 @@
     </div>
     <div class="card-body">
       <form [formGroup]="clientAccountFormGroup">
-        <div formArrayName="clientForm"
+
+        <div class="form-group row">
+          <label
+            class="col-md-2 col-form-label"
+            for="productNameId"
+            >Client Number</label
+          >
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              type="text"
+              formControlName='clientNumber'
+            />
+            <span class="invalid-feedback">
+              <span>
+                Client Number is required.
+              </span>
+              <span>
+                Client number should be whole
+                number and unique
+              </span>
+            </span>
+          </div>
+        </div>
+
+
+        <div formArrayName="clientAccData"
           *ngFor="let element of getForm.controls; let i = index">
           <div [formGroupName]="i">
             <legend>Account N{{i+1}} information:</legend>
@@ -40,29 +66,7 @@
           </div>
         </div>
 
-        <div class="form-group row">
-          <label
-            class="col-md-2 col-form-label"
-            for="productNameId"
-            >Client Number</label
-          >
-          <div class="col-md-8">
-            <input
-              class="form-control"
-              type="text"
-              formControlName='clientNumber'
-            />
-            <span class="invalid-feedback">
-              <span>
-                Client Number is required.
-              </span>
-              <span>
-                Client number should be whole
-                number and unique
-              </span>
-            </span>
-          </div>
-        </div>
+
 
         <div class="form-group row">
           <label

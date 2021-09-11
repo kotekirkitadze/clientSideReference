@@ -10,11 +10,16 @@ import { PersonalDataService } from 'src/app/services/personalData.service';
 })
 export class ClientListComponent
   implements OnInit {
-  clients$: Observable<Client[]>;
+  clients$: Observable<any[]>;
   constructor(private personalDataService: PersonalDataService) { }
 
   ngOnInit(): void {
-    this.clients$ = this.personalDataService.clients$;
+    this.clients$ = this.personalDataService.clientsWithAccountNum$;
+
+    this.personalDataService.clientsWithAccountNum$.subscribe(
+      d => console.log("mapped data: ", d)
+    )
+
   }
 
   deleteClient(id: number) {
