@@ -6,8 +6,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 import { AccountNumber } from 'src/app/models/account-model';
 import { AccountNumberService } from 'src/app/services/account-number.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-personal-account',
@@ -19,7 +21,8 @@ export class PersonalAccountComponent
   implements OnInit {
   constructor(private fb: FormBuilder,
     private accountNumberService: AccountNumberService,
-    private router: Router) { }
+    private router: Router,
+    private loadingService: LoadingService) { }
 
   clientAccountFormGroup: FormGroup;
 
@@ -70,13 +73,14 @@ export class PersonalAccountComponent
       clientAccData: nestedForm
     }
 
-
-
-    this.accountNumberService.addAccountNumber(forPosting).subscribe(
-      data => {
-        console.log('posted successfully', data),
-          this.router.navigate(['/welcome'])
-      }
-    )
+    this.accountNumberService.addAccountNumber(forPosting)
+      .pipe(
+        finalize(() => this.loadingService.stop())
+      ).subscribe(
+        data => {
+          console.log('posted successfully', data),
+            this.router.navigate(['/welcome'])
+        }
+      )
   }
 }

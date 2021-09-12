@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PersonalAccountComponent } from './components/personal-account/personal-account.component';
 import { PageNotFoundComponent } from './shell/header/page-not-found/page-not-found.component';
 import { ClientDetailComponent } from './components/client-detail/client-detail.component';
+import { SharedModule } from './shared/shared.module';
 // import { ClientListComponent } from './components/client-list/client-list.component';
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ClientDetailComponent } from './components/client-detail/client-detail.
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

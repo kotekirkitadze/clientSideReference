@@ -1,9 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { combineLatest, Observable, of } from "rxjs";
-import { filter, map, shareReplay, switchMap } from "rxjs/operators";
+import { delay, filter, map, shareReplay, switchMap, tap } from "rxjs/operators";
 import { Client } from "../models/client-model";
 import { AccountNumberService } from "./account-number.service";
+import { LoadingService } from "./loading.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,22 +13,31 @@ export class PersonalDataService {
   private apiUrl = 'http://localhost:5000/clients'
 
   constructor(private http: HttpClient,
-    private accountNumberService: AccountNumberService) {
+    private accountNumberService: AccountNumberService,
+    private loadingService: LoadingService) {
 
   }
 
   addClient(client: Client): Observable<Client> {
-    return this.http.post<Client>(this.apiUrl, client)
+    return this.http.post<Client>(this.apiUrl, client).pipe(
+      tap(() => this.loadingService.start()),
+      delay(500)
+    )
   }
 
   deleteClient(id: number) {
     return this.http.delete<Client>(`${this.apiUrl}/${id}`)
-      .pipe(switchMap(d => this.accountNumberService.deleteAccount(id)));
+      .pipe(
+        tap(() => this.loadingService.start()),
+        switchMap(d => this.accountNumberService.deleteAccount(id)),
+        delay(300)
+      );
   }
 
   getClient(id: number): Observable<Client> {
     return this.http.get<Client>(`${this.apiUrl}/${id}`)
       .pipe(
+        tap(() => this.loadingService.start()),
         switchMap(client => {
           return this.accountNumberService.getAccountData().pipe(
             map(accountData => {

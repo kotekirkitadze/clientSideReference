@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { delay, tap } from "rxjs/operators";
 import { AccountNumber } from "../models/account-model";
+import { LoadingService } from "./loading.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,15 @@ import { AccountNumber } from "../models/account-model";
 export class AccountNumberService {
   private apiUrl = 'http://localhost:5000/accounts'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private loadingService: LoadingService) { }
 
   addAccountNumber(accountNumber: AccountNumber) {
     return this.http.post<AccountNumber>(this.apiUrl, accountNumber)
+      .pipe(
+        tap(() => this.loadingService.start()),
+        delay(500)
+      )
   }
 
   deleteAccount(id: number) {

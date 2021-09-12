@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { finalize, map, tap } from 'rxjs/operators';
 import { Client } from 'src/app/models/client-model';
+import { LoadingService } from 'src/app/services/loading.service';
 import { PersonalDataService } from 'src/app/services/personalData.service';
 
 @Component({
@@ -13,7 +14,8 @@ import { PersonalDataService } from 'src/app/services/personalData.service';
 export class ClientListComponent
   implements OnInit {
   clients$: Observable<any[]>;
-  constructor(private personalDataService: PersonalDataService) { }
+  constructor(private personalDataService: PersonalDataService,
+    private loadingService: LoadingService) { }
 
   private reflectionSubject = new BehaviorSubject<number>(1);
   reflectionAction$ = this.reflectionSubject.asObservable();
@@ -42,6 +44,7 @@ export class ClientListComponent
   deleteClient(id: number) {
     this.personalDataService
       .deleteClient(id)
+      .pipe(finalize(() => this.loadingService.stop()))
       .subscribe(() => {
         console.log(`Client with id ${id} has been deleted`);
         this.reflectionSubject.next(1)

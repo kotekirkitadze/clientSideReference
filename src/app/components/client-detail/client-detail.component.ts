@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, combineLatest, Subject } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { finalize, map, tap } from 'rxjs/operators';
 import { AccountNumber } from 'src/app/models/account-model';
 import { AccountNumberService } from 'src/app/services/account-number.service';
+import { LoadingService } from 'src/app/services/loading.service';
 import { PersonalDataService } from 'src/app/services/personalData.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class ClientDetailComponent implements OnInit {
 
   constructor(private personalDataService: PersonalDataService,
     private activatedRoute: ActivatedRoute,
-    private accountNumberService: AccountNumberService) { }
+    private accountNumberService: AccountNumberService,
+    private loadingService: LoadingService) { }
 
   activeRoute = +this.activatedRoute.snapshot.paramMap.get('id');
   forUpdateAccountData: any;
@@ -29,9 +31,10 @@ export class ClientDetailComponent implements OnInit {
     return this.personalDataService.getClient(
       this.activeRoute
     ).pipe(
+      finalize(() => this.loadingService.stop()),
       tap(data => {
-        console.log(data)
-        this.forUpdateAccountData = data.accData
+        console.log(data),
+          this.forUpdateAccountData = data.accData
       })
     )
   }

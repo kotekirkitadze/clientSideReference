@@ -2,3 +2,5 @@
 <div class="container">
    <router-outlet></router-outlet>
 </div>
+<app-loading *ngIf="loading$ | async"></app-loading>
+

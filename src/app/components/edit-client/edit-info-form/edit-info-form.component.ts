@@ -6,11 +6,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { valMessageForName } from '../validationMessages';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, finalize, tap } from 'rxjs/operators';
 import { PersonalDataService } from 'src/app/services/personalData.service';
 
 import { Client } from '../../../models/client-model';
 import { Router } from '@angular/router';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-edit-info-form',
@@ -25,7 +26,8 @@ export class EditInfoFormComponent
   constructor(
     private fb: FormBuilder,
     private personalDataService: PersonalDataService,
-    private router: Router
+    private router: Router,
+    private loadingService: LoadingService
   ) { }
 
   ngOnInit(): void {
@@ -121,7 +123,9 @@ export class EditInfoFormComponent
     };
 
     this.personalDataService
-      .addClient(forPosting)
+      .addClient(forPosting).pipe(
+        finalize(() => this.loadingService.stop()),
+      )
       .subscribe((d) => {
         console.log('posted executed: ', d),
           this.router.navigate(['/edit/account']);
