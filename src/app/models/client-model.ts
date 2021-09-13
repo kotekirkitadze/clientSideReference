@@ -1,3 +1,5 @@
+import { AccountNumber } from "./account-model";
+
 export interface Client {
   id: number;
   name: string;
@@ -7,7 +9,7 @@ export interface Client {
   phoneNumber: number;
   legalAddress: Address;
   livingAddress: Address;
-  accData?: any;
+  accData?: AccountNumber[];
 }
 
 interface Address {

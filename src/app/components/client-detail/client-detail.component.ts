@@ -33,7 +33,7 @@ export class ClientDetailComponent implements OnInit {
     ).pipe(
       finalize(() => this.loadingService.stop()),
       tap(data => {
-        console.log(data),
+        console.log(data.accData),
           this.forUpdateAccountData = data.accData
       })
     )

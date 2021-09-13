@@ -1,11 +1,14 @@
 export interface AccountNumber {
   id: number;
-  clientAccData: {
-    accountNumber: number;
-    accountType: myAccountType;
-    currency: currencyType;
-    accountStatus: accType;
-  }
+  clientAccData: ClientAccData[]
+}
+
+
+export interface ClientAccData {
+  accountNumber: string;
+  accountType: myAccountType;
+  currency: currencyType;
+  accountStatus: accType;
 }
 
 enum myAccountType {

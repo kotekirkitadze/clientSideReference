@@ -39,20 +39,21 @@ export class PersonalDataService {
       .pipe(
         tap(() => this.loadingService.start()),
         switchMap(client => {
-          return this.accountNumberService.getAccountData().pipe(
+          return this.accountNumberService.getAccountDataById(client.id).pipe(
             map(accountData => {
               return {
                 ...client,
-                accData: accountData.filter(acc => acc.id == client.id).map(d => d.clientAccData)[0]
+                accData: accountData.clientAccData
               }
             })
           )
-        })
+        }),
+        tap(console.log)
       )
   }
 
   clients$ = this.http.get<Client[]>(this.apiUrl)
-
+  // accountData.filter(acc => acc.id == client.id).map(d => d.clientAccData)
 
   getAllClientsInfo() {
     return combineLatest([

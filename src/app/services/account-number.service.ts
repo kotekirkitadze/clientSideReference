@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { delay, tap } from "rxjs/operators";
+import { delay, map, tap } from "rxjs/operators";
 import { AccountNumber } from "../models/account-model";
 import { LoadingService } from "./loading.service";
 
@@ -31,6 +31,11 @@ export class AccountNumberService {
 
   getAccountData() {
     return this.http.get<AccountNumber[]>(this.apiUrl);
+  }
+
+  getAccountDataById(id: number) {
+    return this.http.get<AccountNumber>(`${this.apiUrl}/${id}`)
+    // .pipe(map(d => d.clientAccData))
   }
 
   accountData$ = this.http.get<AccountNumber[]>(this.apiUrl);

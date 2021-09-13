@@ -1,354 +1,178 @@
 {
   "clients": [
     {
-      "id": "12123",
-      "name": "aSa",
-      "lastName": "sassas",
+      "id": "12312121",
+      "name": "Konstantine",
+      "lastName": "kirkitadze",
+      "personalNumber": "18001068379",
+      "phoneNumber": "598700248",
+      "sex": "Male",
+      "legalAddress": {
+        "country": "sakartvelo",
+        "city": "zestafoni",
+        "streetAddress": "sviri"
+      },
+      "livingAddress": {
+        "country": "sakartvelo",
+        "city": "tbilisi",
+        "streetAddress": "dadiani"
+      }
+    },
+    {
+      "id": "1999",
+      "name": "Kotiko",
+      "lastName": "Kirkitadze",
+      "personalNumber": "59959595959",
+      "phoneNumber": "598700248",
+      "sex": "Male",
+      "legalAddress": {
+        "country": "Tbilisi",
+        "city": "Tbilisi",
+        "streetAddress": "Tbilisi"
+      },
+      "livingAddress": {
+        "country": "Tbilisi",
+        "city": "Tbilisi",
+        "streetAddress": "Tbilisi"
+      }
+    },
+    {
+      "id": "56989",
+      "name": "Konstantine",
+      "lastName": "Konstantine",
       "personalNumber": "12121212121",
-      "phoneNumber": "542121",
+      "phoneNumber": "59895959",
       "sex": "Male",
       "legalAddress": {
-        "country": "ss",
-        "city": "SAAS",
-        "streetAddress": "SA"
+        "country": "Konstantine",
+        "city": "Konstantine",
+        "streetAddress": "Konstantine"
       },
       "livingAddress": {
-        "country": "S",
-        "city": "s",
-        "streetAddress": "as"
+        "country": "Konstantine",
+        "city": "Konstantine",
+        "streetAddress": "Konstantine"
       }
     },
     {
-      "id": "12345",
-      "name": "sasa",
-      "lastName": "asas",
-      "personalNumber": "34221211221",
-      "phoneNumber": "53121",
-      "sex": "Male",
+      "id": "12121w",
+      "name": "asasasa",
+      "lastName": "saasas",
+      "personalNumber": "21121221211212",
+      "phoneNumber": "521121",
+      "sex": "",
       "legalAddress": {
-        "country": "dssasa",
-        "city": "dssasa",
-        "streetAddress": "dssasa"
+        "country": "Konstantine",
+        "city": "Konstantine",
+        "streetAddress": "Konstantine"
       },
       "livingAddress": {
-        "country": "dssasa",
-        "city": "dssasa",
-        "streetAddress": "dssasa"
+        "country": "Konstantine",
+        "city": "Konstantine",
+        "streetAddress": "Konstantine"
       }
     },
     {
-      "id": "223322",
-      "name": "assa",
-      "lastName": "as",
-      "personalNumber": "432112121212",
-      "phoneNumber": "531212",
+      "id": "7878",
+      "name": "datadata",
+      "lastName": "datadata",
+      "personalNumber": "59566562626",
+      "phoneNumber": "59566562626",
       "sex": "Male",
       "legalAddress": {
-        "country": "223322",
-        "city": "223322",
-        "streetAddress": "223322"
+        "country": "59566562626",
+        "city": "59566562626",
+        "streetAddress": "59566562626"
       },
       "livingAddress": {
-        "country": "223322",
-        "city": "223322",
-        "streetAddress": "223322"
-      }
-    },
-    {
-      "id": "1122",
-      "name": "asasas",
-      "lastName": "saas",
-      "personalNumber": "1122112211221122",
-      "phoneNumber": "511221122",
-      "sex": "Male",
-      "legalAddress": {
-        "country": "1122",
-        "city": "1122",
-        "streetAddress": "1122"
-      },
-      "livingAddress": {
-        "country": "1122",
-        "city": "1122",
-        "streetAddress": "1122"
-      }
-    },
-    {
-      "id": "1231234",
-      "name": "saassa",
-      "lastName": "asasas",
-      "personalNumber": "231212122112",
-      "phoneNumber": "5631212",
-      "sex": "Male",
-      "legalAddress": {
-        "country": "formValue",
-        "city": "formValue",
-        "streetAddress": "formValue"
-      },
-      "livingAddress": {
-        "country": "formValue",
-        "city": "formValue",
-        "streetAddress": "formValue"
-      }
-    },
-    {
-      "id": "222222222222222222",
-      "name": "asas",
-      "lastName": "asSA",
-      "personalNumber": "121212121212",
-      "phoneNumber": "5312121",
-      "sex": "Male",
-      "legalAddress": {
-        "country": "ASASASAS",
-        "city": "ASASASAS",
-        "streetAddress": "ASASASAS"
-      },
-      "livingAddress": {
-        "country": "ASASASAS",
-        "city": "ASASASAS",
-        "streetAddress": "ASASASAS"
-      }
-    },
-    {
-      "id": "787878",
-      "name": "kote",
-      "lastName": "aaaaaaaaaaaa",
-      "personalNumber": "1221212112212121",
-      "phoneNumber": "512212121",
-      "sex": "Male",
-      "legalAddress": {
-        "country": "saas",
-        "city": "saas",
-        "streetAddress": "saas"
-      },
-      "livingAddress": {
-        "country": "saas",
-        "city": "saas",
-        "streetAddress": "saas"
+        "country": "59566562626",
+        "city": "59566562626",
+        "streetAddress": "59566562626"
       }
     }
   ],
   "accounts": [
     {
-      "id": "12123",
+      "id": "12312121",
       "clientAccData": [
         {
-          "accNumber": "assa",
+          "accountNumber": "Gel",
           "accountType": "economical",
-          "currencyType": "USD",
+          "currency": "GEL",
+          "accountStatus": "Acctive"
+        },
+        {
+          "accountNumber": "qwawasa",
+          "accountType": "current",
+          "currency": "USD",
+          "accountStatus": "Acctive"
+        },
+        {
+          "accountNumber": "ZZA",
+          "accountType": "economical",
+          "currency": "GEL",
           "accountStatus": "Acctive"
         }
       ]
     },
     {
-      "id": "12345",
+      "id": "1999",
       "clientAccData": [
         {
-          "accNumber": "saasas",
-          "accountType": "economical",
-          "currencyType": "GEL",
+          "accountNumber": "USD111",
+          "accountType": "current",
+          "currency": "USD",
           "accountStatus": "Acctive"
         },
         {
-          "accNumber": "12wqSA",
+          "accountNumber": "GEL123",
           "accountType": "economical",
-          "currencyType": "USD",
+          "currency": "USD",
           "accountStatus": "Acctive"
         }
       ]
     },
     {
+      "id": "56989",
       "clientAccData": [
         {
-          "accNumber": "GSDFASA",
-          "accountType": "economical",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        },
-        {
-          "accNumber": "saSAas",
+          "accountNumber": "55555",
           "accountType": "current",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        },
-        {
-          "accNumber": "fdsasaSA",
-          "accountType": "current",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        },
-        {
-          "accNumber": "GTFWEgE",
-          "accountType": "current",
-          "currencyType": "EUR",
-          "accountStatus": "Acctive"
-        }
-      ],
-      "id": "RbyuKNA"
-    },
-    {
-      "clientAccData": [
-        {
-          "accNumber": "ASAS",
-          "accountType": "economical",
-          "currencyType": "USD",
-          "accountStatus": "Acctive"
-        }
-      ],
-      "id": "vGMawSF"
-    },
-    {
-      "clientAccData": [
-        {
-          "accNumber": "332211332211",
-          "accountType": "economical",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        },
-        {
-          "accNumber": "asas",
-          "accountType": "current",
-          "currencyType": "EUR",
-          "accountStatus": "Acctive"
-        }
-      ],
-      "id": "LH4FS7X"
-    },
-    {
-      "clientAccData": [
-        {
-          "accNumber": "asasa",
-          "accountType": "accumulative",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        },
-        {
-          "accNumber": "332211asas",
-          "accountType": "current",
-          "currencyType": "EUR",
-          "accountStatus": "Acctive"
-        }
-      ],
-      "id": "o9wZPRZ"
-    },
-    {
-      "clientAccData": [
-        {
-          "accNumber": "asasasa",
-          "accountType": "current",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        }
-      ],
-      "id": "CkqvdDn"
-    },
-    {
-      "id": "223322",
-      "clientAccData": [
-        {
-          "accNumber": "asaas",
-          "accountType": "current",
-          "currencyType": "GEL",
+          "currency": "USD",
           "accountStatus": "Acctive"
         }
       ]
     },
     {
+      "id": "12121w",
       "clientAccData": [
         {
-          "accNumber": "asasa",
+          "accountNumber": "Konstantine",
           "accountType": "current",
-          "currencyType": "GEL",
+          "currency": "GEL",
           "accountStatus": "Acctive"
-        }
-      ],
-      "id": "WolV6Ee"
-    },
-    {
-      "clientAccData": [
+        },
         {
-          "accNumber": "22334423121212",
+          "accountNumber": "KonstantineKonstantine",
           "accountType": "current",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        }
-      ],
-      "id": "pbDenoT"
-    },
-    {
-      "clientAccData": [
-        {
-          "accNumber": "21212121",
-          "accountType": "current",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        }
-      ],
-      "id": "T-LcIOw"
-    },
-    {
-      "id": "1122",
-      "clientAccData": [
-        {
-          "accNumber": "11221122",
-          "accountType": "current",
-          "currencyType": "USD",
+          "currency": "GEL",
           "accountStatus": "Acctive"
         }
       ]
     },
     {
-      "id": "1231234",
+      "id": "7878",
       "clientAccData": [
         {
-          "accNumber": "assas",
+          "accountNumber": "59566562626",
           "accountType": "current",
-          "currencyType": "USD",
+          "currency": "GEL",
           "accountStatus": "Acctive"
         },
         {
-          "accNumber": "asassa112233",
+          "accountNumber": "59566562626",
           "accountType": "current",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        }
-      ]
-    },
-    {
-      "id": "222222222222222222",
-      "clientAccData": [
-        {
-          "accNumber": "ASASASAS",
-          "accountType": "economical",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        },
-        {
-          "accNumber": "SASASAasas",
-          "accountType": "economical",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        },
-        {
-          "accNumber": "GEL",
-          "accountType": "accumulative",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        }
-      ]
-    },
-    {
-      "id": "787878",
-      "clientAccData": [
-        {
-          "accNumber": "saaaaaaaaaaaaaaaaaaaaaaa",
-          "accountType": "economical",
-          "currencyType": "GEL",
-          "accountStatus": "Acctive"
-        },
-        {
-          "accNumber": "qqqqqqqq",
-          "accountType": "current",
-          "currencyType": "USD",
+          "currency": "GEL",
           "accountStatus": "Acctive"
         }
       ]
