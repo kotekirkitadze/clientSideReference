@@ -1,35 +1,4 @@
 {
-  "clients": [
-    {
-      "id": "12312121",
-      "name": "Konstantine",
-      "lastName": "kirkitadze",
-      "personalNumber": "18001068379",
-      "phoneNumber": "598700248",
-      "sex": "Male",
-      "legalAddress": {
-        "country": "sakartvelo",
-        "city": "zestafoni",
-        "streetAddress": "sviri"
-      },
-      "livingAddress": {
-        "country": "sakartvelo",
-        "city": "tbilisi",
-        "streetAddress": "dadiani"
-      }
-    }
-  ],
-  "accounts": [
-    {
-      "id": "12312121",
-      "clientAccData": [
-        {
-          "accountNumber": "GEL",
-          "accountType": "economical",
-          "currency": "GEL",
-          "accountStatus": "Acctive"
-        }
-      ]
-    }
-  ]
+  "clients": [],
+  "accounts": []
 }

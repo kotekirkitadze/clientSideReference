@@ -187,6 +187,7 @@
           style="width: 80px"
           type="button"
           title="Cancel your edits"
+          *ngIf="detectCreation =='true'"
           (click)="AddForm()"
         >
           + One

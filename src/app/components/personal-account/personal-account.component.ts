@@ -41,13 +41,11 @@ export class PersonalAccountComponent
   detectCreation = this.activatedRoute.snapshot.paramMap.get('creation');
   ngOnInit(): void {
     this.buildForm()
-    if (this.detectCreation) {
+    if (this.detectCreation == "true") {
       // this.buildForm()
     } else {
       this.getData().subscribe(console.log)
-
     }
-    this.getData().subscribe(console.log)
   }
 
   getData() {
@@ -122,7 +120,7 @@ export class PersonalAccountComponent
       clientAccData: nestedForm
     }
 
-    if (!this.detectCreation) {
+    if (this.detectCreation == "true") {
       console.log("heyhey")
       this.postNew(forPosting).subscribe((data => {
         console.log('posted successfully', data);
