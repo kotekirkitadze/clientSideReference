@@ -15,7 +15,7 @@ const ROUTES = [
   { path: 'clients', component: ClientListComponent },
   { path: 'clients/:id', component: ClientDetailComponent },
   { path: 'client/:id/edit', component: EditClientComponent },
-  { path: 'edit/account', component: PersonalAccountComponent },
+  { path: 'account/:id/edit', component: PersonalAccountComponent },
   { path: '**', component: PageNotFoundComponent }
 ]
 

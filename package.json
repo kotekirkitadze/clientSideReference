@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "server": "json-server --watch db.json --port 5000",
-     "format": "prettier --write src/app/components"
+    "format": "prettier --write src/app/components"
   },
   "private": true,
   "dependencies": {

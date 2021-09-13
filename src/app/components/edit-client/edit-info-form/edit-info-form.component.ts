@@ -128,7 +128,7 @@ export class EditInfoFormComponent
       )
       .subscribe((d) => {
         console.log('posted executed: ', d),
-          this.router.navigate(['/edit/account']);
+          this.router.navigate(['/account', formValue?.clinetNumber, 'edit']);
       });
   }
 

@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { AccountNumber } from 'src/app/models/account-model';
 import { AccountNumberService } from 'src/app/services/account-number.service';
@@ -22,15 +22,16 @@ export class PersonalAccountComponent
   constructor(private fb: FormBuilder,
     private accountNumberService: AccountNumberService,
     private router: Router,
-    private loadingService: LoadingService) { }
+    private loadingService: LoadingService,
+    private activatedRoute: ActivatedRoute) { }
 
   clientAccountFormGroup: FormGroup;
 
   ngOnInit(): void {
+    // console.log(typeof this.activatedRoute.snapshot.paramMap.get('id'));
     this.clientAccountFormGroup = this.fb.group({
-      clientNumber: [
-        '',
-        Validators.required
+      clientNumber: [{ value: this.activatedRoute.snapshot.paramMap.get('id'), disabled: true },
+      Validators.required
       ],
       clientAccData: this.fb.array([this.buildAccountForm()])
     })
@@ -65,7 +66,8 @@ export class PersonalAccountComponent
       return null
     }
 
-    const formValue = this.clientAccountFormGroup?.value;
+
+    const formValue = this.clientAccountFormGroup?.getRawValue();
     const nestedForm = this.clientAccountFormGroup?.get('clientAccData').value
 
     const forPosting = {
@@ -79,6 +81,8 @@ export class PersonalAccountComponent
       ).subscribe(
         data => {
           console.log('posted successfully', data),
+            console.log("val", formValue),
+            console.log("type of", typeof formValue),
             this.router.navigate(['/welcome'])
         }
       )

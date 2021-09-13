@@ -68,7 +68,7 @@
         </button>
         <button class="btn btn-outline-primary"
                 style="width:80px"
-                 >
+                >
           Edit
         </button>
       </div>
@@ -120,7 +120,9 @@
         </button>
         <button class="btn btn-secondary"
                 style="width:80px"
-                 >
+                [routerLink]="['/account', client.id, 'edit', {
+                  accountNum: element.accNumber
+                } ]" >
           Edit
         </button>
       </div>
