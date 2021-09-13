@@ -38,5 +38,9 @@ export class AccountNumberService {
     // .pipe(map(d => d.clientAccData))
   }
 
+  updateSelectedAccount(updatedValue: AccountNumber) {
+    return this.http.put<AccountNumber>(`${this.apiUrl}/${updatedValue.id}`, updatedValue)
+  }
+
   accountData$ = this.http.get<AccountNumber[]>(this.apiUrl);
 }

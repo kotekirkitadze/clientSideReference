@@ -122,16 +122,31 @@ export class PersonalAccountComponent
       clientAccData: nestedForm
     }
 
-    this.accountNumberService.addAccountNumber(forPosting)
+    if (!this.detectCreation) {
+      console.log("heyhey")
+      this.postNew(forPosting).subscribe((data => {
+        console.log('posted successfully', data);
+        this.router.navigate(['/welcome'])
+      }))
+    } else {
+      this.updateValue(forPosting).subscribe(data => {
+        console.log('updated successfully');
+        this.router.navigate(['/welcome'])
+      })
+    }
+  }
+
+  updateValue(forUpdate) {
+    return this.accountNumberService.updateSelectedAccount(forUpdate)
+  }
+
+  postNew(forNewPost) {
+    return this.accountNumberService.addAccountNumber(forNewPost)
       .pipe(
-        finalize(() => this.loadingService.stop())
-      ).subscribe(
-        data => {
-          console.log('posted successfully', data),
-            console.log("val", formValue),
-            console.log("type of", typeof formValue),
-            this.router.navigate(['/welcome'])
-        }
+        finalize(() => {
+          this.loadingService.stop();
+
+        })
       )
   }
 }
