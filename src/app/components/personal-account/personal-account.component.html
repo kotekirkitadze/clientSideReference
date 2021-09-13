@@ -174,16 +174,27 @@
     <div class="row mb-2">
       <div class="col-md-4">
         <button
-          class="btn btn-primary mr-3"
+          class="btn btn-success mr-3"
           style="width: 80px"
           type="button"
+          *ngIf="detectCreation =='true'"
           title="Save your entered data"
           (click)="addAccount()"
         >
-          Save
+          Create
         </button>
         <button
-          class="btn btn-outline-secondary mr-3 addAnother"
+          class="btn btn-primary mr-3"
+          style="width: 80px"
+          type="button"
+          *ngIf="!(detectCreation =='true')"
+          title="Save your entered data"
+          (click)="addAccount()"
+        >
+          Update
+        </button>
+        <button
+          class="btn btn-secondary mr-3 addAnother"
           style="width: 80px"
           type="button"
           title="Cancel your edits"
@@ -193,10 +204,11 @@
           + One
         </button>
         <button
-          class="btn btn-outline-warning"
+          class="btn btn-danger"
           style="width: 80px"
           type="button"
           title="Delete this product"
+
         >
           Delete
         </button>

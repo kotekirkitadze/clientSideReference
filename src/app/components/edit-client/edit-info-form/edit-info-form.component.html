@@ -460,9 +460,20 @@
         style="width: 80px"
         type="button"
         title="Save your entered data"
+        *ngIf="activeRouteId == '0'"
         (click)="addClient()"
       >
         Next
+      </button>
+      <button
+        class="btn btn-success mr-3"
+        style="width: 80px"
+        type="button"
+        title="Save your entered data"
+        *ngIf="!(activeRouteId == '0')"
+        (click)="addClient()"
+      >
+        Update
       </button>
       <button
         class="btn btn-secondary mr-3"

@@ -1,4 +1,35 @@
 {
-  "clients": [],
-  "accounts": []
+  "clients": [
+    {
+      "id": "1122",
+      "name": "kotiko",
+      "lastName": "asassa",
+      "personalNumber": "5121212151212121",
+      "phoneNumber": "51212121",
+      "sex": "Male",
+      "legalAddress": {
+        "country": "51212121",
+        "city": "51212121",
+        "streetAddress": "51212121"
+      },
+      "livingAddress": {
+        "country": "51212121",
+        "city": "51212121",
+        "streetAddress": "51212121"
+      }
+    }
+  ],
+  "accounts": [
+    {
+      "id": "1122",
+      "clientAccData": [
+        {
+          "accountNumber": "GEL123123",
+          "accountType": "current",
+          "currency": "GEL",
+          "accountStatus": "Acctive"
+        }
+      ]
+    }
+  ]
 }

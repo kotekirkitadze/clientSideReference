@@ -124,11 +124,13 @@ export class PersonalAccountComponent
       console.log("heyhey")
       this.postNew(forPosting).subscribe((data => {
         console.log('posted successfully', data);
+        this.clientAccountFormGroup.reset(this.clientAccountFormGroup.value);
         this.router.navigate(['/welcome'])
       }))
     } else {
       this.updateValue(forPosting).subscribe(data => {
         console.log('updated successfully');
+        this.clientAccountFormGroup.reset(this.clientAccountFormGroup.value);
         this.router.navigate(['/welcome'])
       })
     }

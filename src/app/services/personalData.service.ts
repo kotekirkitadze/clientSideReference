@@ -85,6 +85,10 @@ export class PersonalDataService {
     })
   )
 
+
+  updateClient(updatedValue: Client) {
+    return this.http.put<Client>(`${this.apiUrl}/${+updatedValue.id}`, updatedValue);
+  }
 }
 
 
