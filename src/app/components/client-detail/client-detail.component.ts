@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, combineLatest, Subject } from 'rxjs';
 import { finalize, map, tap } from 'rxjs/operators';
 import { AccountNumber } from 'src/app/models/account-model';
@@ -17,7 +17,8 @@ export class ClientDetailComponent implements OnInit {
   constructor(private personalDataService: PersonalDataService,
     private activatedRoute: ActivatedRoute,
     private accountNumberService: AccountNumberService,
-    private loadingService: LoadingService) { }
+    private loadingService: LoadingService,
+    private route: Router) { }
 
   activeRoute = +this.activatedRoute.snapshot.paramMap.get('id');
   forUpdateAccountData: any;
@@ -38,6 +39,8 @@ export class ClientDetailComponent implements OnInit {
       })
     )
   }
+
+
 
   clientWithAccountData$ = this.fetch()
 

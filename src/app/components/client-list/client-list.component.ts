@@ -20,8 +20,6 @@ export class ClientListComponent
   private reflectionSubject = new BehaviorSubject<number>(1);
   reflectionAction$ = this.reflectionSubject.asObservable();
 
-
-
   ngOnInit(): void {
     this.clients$ = this.reflection();
 
@@ -38,9 +36,6 @@ export class ClientListComponent
       map(([d, data]) => data)
     )
   }
-
-
-
   deleteClient(id: number) {
     this.personalDataService
       .deleteClient(id)

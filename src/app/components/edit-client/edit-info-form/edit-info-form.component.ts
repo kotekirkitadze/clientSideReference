@@ -12,6 +12,7 @@ import { PersonalDataService } from 'src/app/services/personalData.service';
 import { Client } from '../../../models/client-model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingService } from 'src/app/services/loading.service';
+import { EditInfoFacade } from './edit-info.facade';
 
 @Component({
   selector: 'app-edit-info-form',
@@ -28,7 +29,9 @@ export class EditInfoFormComponent
     private personalDataService: PersonalDataService,
     private router: Router,
     private loadingService: LoadingService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private facade: EditInfoFacade
+
   ) { }
 
   activeRouteId;
@@ -66,6 +69,16 @@ export class EditInfoFormComponent
       .pipe(tap((data: Client) => this.populateForm(data)))
   }
 
+  deleteClient() {
+    this.personalDataService
+      .deleteClient(this.activeRouteId)
+      .pipe(finalize(() => this.loadingService.stop()))
+      .subscribe(() => {
+        console.log(`Client with id ${this.activeRouteId} has been deleted`);
+        this.router.navigate(['/clients'])
+      }
+      );
+  }
   populateForm(client: Client) {
     this.clientForm.setValue({
       clinetNumber: client.id,
@@ -188,10 +201,6 @@ export class EditInfoFormComponent
           () => this.router.navigate(['/welcome'])
         );
     }
-
-
-
-
   }
 
   setMessageForName(c: AbstractControl) {

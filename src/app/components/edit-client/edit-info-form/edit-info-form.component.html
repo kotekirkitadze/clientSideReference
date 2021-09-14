@@ -480,14 +480,17 @@
         style="width: 80px"
         type="button"
         title="Cancel your edits"
+        [routerLink]="['/clients']"
       >
         Cancel
       </button>
       <button
-        class="btn btn-warning"
+        class="btn btn-danger"
         style="width: 80px"
         type="button"
         title="Delete this product"
+        (click)="deleteClient()"
+        *ngIf="activeRouteId !=='0'"
       >
         Delete
       </button>

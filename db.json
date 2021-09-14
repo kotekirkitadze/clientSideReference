@@ -1,32 +1,61 @@
 {
   "clients": [
     {
-      "id": "1122",
-      "name": "kotiko",
-      "lastName": "asassa",
-      "personalNumber": "5121212151212121",
-      "phoneNumber": "51212121",
+      "id": "11",
+      "name": "asasa",
+      "lastName": "sasaas",
+      "personalNumber": "532112532112",
+      "phoneNumber": "532112",
       "sex": "Male",
       "legalAddress": {
-        "country": "51212121",
-        "city": "51212121",
-        "streetAddress": "51212121"
+        "country": "532112",
+        "city": "532112",
+        "streetAddress": "532112"
       },
       "livingAddress": {
-        "country": "51212121",
-        "city": "51212121",
-        "streetAddress": "51212121"
+        "country": "532112",
+        "city": "532112",
+        "streetAddress": "532112"
+      }
+    },
+    {
+      "id": "121212",
+      "name": "asasa",
+      "lastName": "asas",
+      "personalNumber": "532112532112",
+      "phoneNumber": "532112",
+      "sex": "Female",
+      "legalAddress": {
+        "country": "532112",
+        "city": "532112532112532112aa",
+        "streetAddress": "532112532112532112aa"
+      },
+      "livingAddress": {
+        "country": "532112532112532112aa",
+        "city": "532112532112532112aa",
+        "streetAddress": "532112532112532112aa"
       }
     }
   ],
   "accounts": [
     {
-      "id": "1122",
+      "id": "11",
       "clientAccData": [
         {
-          "accountNumber": "GEL123123",
+          "accountNumber": "532112532112",
           "accountType": "current",
           "currency": "GEL",
+          "accountStatus": "Acctive"
+        }
+      ]
+    },
+    {
+      "id": "121212",
+      "clientAccData": [
+        {
+          "accountNumber": "asas",
+          "accountType": "economical",
+          "currency": "USD",
           "accountStatus": "Acctive"
         }
       ]
