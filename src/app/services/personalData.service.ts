@@ -37,7 +37,7 @@ export class PersonalDataService {
   getClient(id: number): Observable<Client> {
     return this.http.get<Client>(`${this.apiUrl}/${id}`)
       .pipe(
-        tap(() => this.loadingService.start()),
+        // tap(() => this.loadingService.start()),
         switchMap(client => {
           return this.accountNumberService.getAccountDataById(client.id).pipe(
             map(accountData => {
@@ -48,6 +48,7 @@ export class PersonalDataService {
             })
           )
         }),
+        delay(2000),
         tap(console.log)
       )
   }

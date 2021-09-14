@@ -10,42 +10,42 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-3">სახელი:</div>
-          <div class="col-md-6"> {{client.name}} </div>
+          <div class="col-md-6"> {{client['name']}} </div>
         </div>
         <div class="row">
           <div class="col-md-3">გვარი:</div>
-          <div class="col-md-6">{{client.lastName}}</div>
+          <div class="col-md-6">{{client['lastName']}}</div>
         </div>
         <div class="row">
           <div class="col-md-3">კლიენტის ნომერი:</div>
-          <div class="col-md-6">{{client.id}}</div>
+          <div class="col-md-6">{{client['id']}}</div>
         </div>
         <div class="row">
           <div class="col-md-3">პირადი ნომერი:</div>
-          <div class="col-md-6">{{client.personalNumber}}</div>
+          <div class="col-md-6">{{client['personalNumber']}}</div>
         </div>
         <div class="row">
           <div class="col-md-3">ტელეფონის ნომერი:</div>
-          <div class="col-md-6">{{client.phoneNumber}}</div>
+          <div class="col-md-6">{{client['phoneNumber']}}</div>
         </div>
         <div class="row">
           <div class="col-md-3">სქესი:</div>
-          <div class="col-md-6"> {{client.sex}}</div>
+          <div class="col-md-6"> {{client['sex']}}</div>
         </div>
         <div class="row">
           <div class="col-md-3">იურიდიული მისამართი:</div>
           <div class="col-md-8">
-                {{client.legalAddress.country}},
-                {{client.legalAddress.city}},
-                {{client.legalAddress.streetAddress}}
+                {{client['legalAddress'].country}},
+                {{client['legalAddress'].city}},
+                {{client['legalAddress'].streetAddress}}
           </div>
         </div>
         <div class="row">
           <div class="col-md-3">ფიქტირი მისამართი მისამართი:</div>
           <div class="col-md-8">
-              {{client.livingAddress.country}},
-                {{client.livingAddress.city}},
-                {{client.livingAddress.streetAddress}}
+              {{client['livingAddress'].country}},
+                {{client['livingAddress'].city}},
+                {{client['livingAddress'].streetAddress}}
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
         </button>
         <button class="btn btn-primary"
                 style="width:80px"
-                [routerLink]="['/client', client.id, 'edit']"
+                [routerLink]="['/client', client['id'], 'edit']"
                 >
           Edit
         </button>
@@ -81,7 +81,7 @@
 
 
 <div class="accountInfo">
-  <div class="card  accCard" *ngFor="let element of client.accData">
+  <div class="card  accCard" *ngFor="let element of client['accData']">
   <div class="card-header">
     ანგარიშის ინფორმაცია
   </div>
@@ -112,15 +112,10 @@
 
     <div class="row mt-4">
       <div class="col-md-4 btns">
-        <button class="btn btn-danger mr-3"
-                style="width:80px"
-                (click)="deleteSelectedAccount(element['accountNumber'])"
-                 >
-          <i class="fa fa-chevron-left"></i> Delete
-        </button>
+
         <button class="btn btn-secondary"
                 style="width:80px"
-                [routerLink]="['/account', client.id, 'edit', {
+                [routerLink]="['/account', client['id'], 'edit', {
                   accountNum: element['accountNumber'],
                   creation: false
                 }]" >

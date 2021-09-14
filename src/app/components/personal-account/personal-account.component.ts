@@ -30,6 +30,7 @@ export class PersonalAccountComponent
   activeRoute = this.activatedRoute.snapshot.paramMap.get('id');
   activeOptionParam = this.activatedRoute.snapshot.paramMap.get('accountNum');
   detectCreation = this.activatedRoute.snapshot.paramMap.get('creation');
+
   ngOnInit(): void {
     this.buildForm()
     if (this.detectCreation == "true") {

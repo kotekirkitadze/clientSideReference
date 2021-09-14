@@ -22,3 +22,8 @@ enum Sex {
   Male = 'Male',
   Female = 'Female'
 }
+
+export interface ClientResolved {
+  client: Client;
+  error?: any
+}
