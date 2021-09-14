@@ -71,24 +71,6 @@
         "city": "112233",
         "streetAddress": "112233"
       }
-    },
-    {
-      "id": "1212121312",
-      "name": "as",
-      "lastName": "asa",
-      "personalNumber": "112233112233",
-      "phoneNumber": "5112233",
-      "sex": "Male",
-      "legalAddress": {
-        "country": "112233",
-        "city": "112233",
-        "streetAddress": "112233"
-      },
-      "livingAddress": {
-        "country": "112233",
-        "city": "112233",
-        "streetAddress": "112233"
-      }
     }
   ],
   "accounts": [
@@ -96,7 +78,19 @@
       "id": "123123",
       "clientAccData": [
         {
-          "accountNumber": "12121212sasa",
+          "accountNumber": "11",
+          "accountType": "economical",
+          "currency": "USD",
+          "accountStatus": "Acctive"
+        },
+        {
+          "accountNumber": "22",
+          "accountType": "economical",
+          "currency": "USD",
+          "accountStatus": "Acctive"
+        },
+        {
+          "accountNumber": "33",
           "accountType": "economical",
           "currency": "USD",
           "accountStatus": "Acctive"

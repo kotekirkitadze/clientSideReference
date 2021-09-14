@@ -1,0 +1,39 @@
+<div class="accountInfo">
+  <div class="card-header">
+    ანგარიშის ინფორმაცია
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-6">ანგარიშის ნომერი :</div>
+          <div class="col-md-6"> {{client['accountNumber']}} </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">ანგარიშს ტიპი:</div>
+          <div class="col-md-6">{{client['accountType']}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">ანგარიშის სტატუსი</div>
+          <div class="col-md-6">{{client['accountStatus']}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">ვალუტის ტიპი</div>
+          <div class="col-md-6">{{client['currency']}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4 btns">
+        <button class="btn btn-secondary"
+                style="width:80px"
+                [routerLink]="['/account', id, 'edit', {
+                  accountNum: client['accountNumber'],
+                  creation: false
+                }]" >
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

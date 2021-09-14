@@ -19,6 +19,7 @@ import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
 // import { ClientListComponent } from './components/client-list/client-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccountDetailComponent } from './components/client-detail/account-detail/account-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     WelcomeComponent,
     PersonalAccountComponent,
     PageNotFoundComponent,
-    ClientDetailComponent
+    ClientDetailComponent,
+    AccountDetailComponent
   ],
   imports: [
     BrowserModule,
