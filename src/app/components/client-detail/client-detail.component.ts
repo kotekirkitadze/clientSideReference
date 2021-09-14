@@ -27,37 +27,10 @@ export class ClientDetailComponent implements OnInit, AfterViewInit {
   activeRoute = +this.activatedRoute.snapshot.paramMap.get('id');
   forUpdateAccountData: any;
 
-  // fetch() {
-  //   return this.personalDataService.getClient(
-  //     this.activeRoute
-  //   ).pipe(
-  //     finalize(() => this.loadingService.stop()),
-  //     tap(data => {
-  //       console.log(data.accData),
-  //         this.forUpdateAccountData = data.accData
-  //     })
-  //   )
-  // }
+  clientWithAccountData$;
 
-  clientWithAccountData$; // = this.fetch()
-
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   ngAfterViewInit() { }
-
-  // deleteSelectedAccount(accountNumber) {
-  //   let forUpdate: AccountNumber = {
-  //     id: this.activeRoute,
-  //     clientAccData: this.forUpdateAccountData.filter(d => d.accountNumber != accountNumber)
-  //   }
-  //   this.accountNumberService.deleteSelectedAccount(forUpdate).subscribe(
-  //     d => {
-  //       this.clientWithAccountData$ = this.fetch()
-  //     }
-  //   )
-  // }
 
 }

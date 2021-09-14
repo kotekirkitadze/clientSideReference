@@ -1,0 +1,20 @@
+{
+  "personalInfo": {
+    "CLIENT_INFO": "მომხმარებლის ინფორმაცია:",
+    "CLIENT_NUMBER": "კლიენტის ნომერი:",
+    "NAME": "სახელი:",
+    "LAST_NAME": "გვარი:",
+    "SEX": "სქესი",
+    "PERSONAL_NUMBER": "პირადი ნომერი:",
+    "MOBILE_PHONE": "ტელეფონის ნომერი:",
+    "LEGAL_ADDRESS": "იურიდიული მისამართი:",
+    "LIVING_ADDRESS": "საცხოვრებელი მისამართი:",
+    "COUNTRY": "ქვეყანა:",
+    "CITY": "ქალაქი:",
+    "STREET": "ქუჩა:",
+    "NEXT_BTN": "შემდეგი",
+    "UPDATE_BTN": "ცვლილებების შენახვა",
+    "CANCEL_BTN": "გაუქმება",
+    "DELETE_BTN": "წაშლა"
+  }
+}

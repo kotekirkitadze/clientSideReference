@@ -1,0 +1,20 @@
+{
+  "personalInfo": {
+    "CLIENT_INFO": "Account Requisites:",
+    "CLIENT_NUMBER": "Client Number:",
+    "NAME": "Name:",
+    "LAST_NAME": "Last Name:",
+    "SEX": "Sex",
+    "PERSONAL_NUMBER": "Personal Number:",
+    "MOBILE_PHONE": "Phone Number:",
+    "LEGAL_ADDRESS": "Legal Address:",
+    "LIVING_ADDRESS": "Living Address:",
+    "COUNTRY": "Country:",
+    "CITY": "City:",
+    "STREET": "Street:",
+    "NEXT_BTN": "Next",
+    "UPDATE_BTN": "Update",
+    "CANCEL_BTN": "Cancel",
+    "DELETE_BTN": "Delete"
+  }
+}

@@ -169,8 +169,7 @@ export class EditInfoFacade {
 }
 
 function startWithFiveValidator(
-  c: AbstractControl
-): { [key: string]: boolean } | null {
+  c: AbstractControl): { [key: string]: boolean } | null {
   if (c.value.charAt(0) !== '5') {
     return { notStartWithFive: true };
   }

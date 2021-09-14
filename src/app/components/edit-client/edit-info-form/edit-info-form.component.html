@@ -6,7 +6,7 @@
       <label
         class="col-md-2 col-form-label"
         for="productNameId"
-        >Client Number</label
+        >{{"personalInfo.CLIENT_NUMBER" | translate}}</label
       >
       <div class="col-md-8">
         <input
@@ -30,7 +30,7 @@
       <label
         class="col-md-2 col-form-label"
         for="productCodeId"
-        >Name</label
+        >{{"personalInfo.NAME" | translate}}</label
       >
       <div class="col-md-8">
         <input
@@ -51,7 +51,7 @@
       <label
         class="col-md-2 col-form-label"
         for="productCodeId"
-        >Last Name</label
+        >{{"personalInfo.LAST_NAME" | translate}}</label
       >
       <div class="col-md-8">
         <input
@@ -106,7 +106,7 @@
       <label
         class="col-md-2 col-form-label"
         for="productCodeId"
-        >Sex</label
+        >{{"personalInfo.SEX" | translate}}</label
       >
       <div class="col-md-8">
         <select
@@ -135,7 +135,7 @@
       <label
         class="col-md-2 col-form-label"
         for="productCodeId"
-        >Personal Number</label
+        >{{"personalInfo.PERSONAL_NUMBER" | translate}}</label
       >
       <div class="col-md-8">
         <input
@@ -189,7 +189,7 @@
       <label
         class="col-md-2 col-form-label"
         for="productCodeId"
-        >Mobile Number</label
+        >{{"personalInfo.MOBILE_PHONE" | translate}}</label
       >
       <div class="col-md-8">
         <input
@@ -243,7 +243,7 @@
         <label
           class="col-md-2 col-form-label"
           for="productCodeId"
-          >Legal address</label
+          >{{"personalInfo.LEGAL_ADDRESS" | translate}}</label
         >
         <div class="col-md-8">
           <input
@@ -352,7 +352,7 @@
         <label
           class="col-md-2 col-form-label"
           for="productCodeId"
-          >Living address</label
+          >{{"personalInfo.LIVING_ADDRESS" | translate}}</label
         >
         <div class="col-md-8">
           <input
@@ -463,7 +463,7 @@
         *ngIf="activeRouteId == '0'"
         (click)="addClient()"
       >
-        Next
+        {{"personalInfo.NEXT_BTN" | translate}}
       </button>
       <button
         class="btn btn-success mr-3"
@@ -473,7 +473,7 @@
         *ngIf="!(activeRouteId == '0')"
         (click)="addClient()"
       >
-        Update
+        {{"personalInfo.UPDATE_BTN" | translate}}
       </button>
       <button
         class="btn btn-secondary mr-3"
@@ -482,7 +482,7 @@
         title="Cancel your edits"
         [routerLink]="['/clients']"
       >
-        Cancel
+       {{"personalInfo.CANCEL_BTN" | translate}}
       </button>
       <button
         class="btn btn-danger"
@@ -492,7 +492,7 @@
         (click)="deleteClient()"
         *ngIf="activeRouteId !=='0'"
       >
-        Delete
+        {{"personalInfo.DELETE_BTN" | translate}}
       </button>
     </div>
   </div>

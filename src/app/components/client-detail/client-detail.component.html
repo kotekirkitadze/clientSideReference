@@ -3,9 +3,7 @@
   <div class="card-header">
     პირადი ინფორმაცია
   </div>
-  <div class="card-body"
-         >
-
+  <div class="card-body">
     <div class="row">
       <div class="col-md-8">
         <div class="row">
@@ -49,15 +47,12 @@
           </div>
         </div>
       </div>
-
-      <div class="col-md-4"
-            >
+      <div class="col-md-4">
         <img class="center-block img-responsive"
              [style.height.px]="150"
              [style.margin.px]="2" >
       </div>
     </div>
-
     <div class="row mt-4">
       <div class="col-md-4 btns">
         <button class="btn btn-secondary mr-3"
@@ -67,33 +62,19 @@
         </button>
         <button class="btn btn-primary"
                 style="width:80px"
-                [routerLink]="['/client', client['id'], 'edit']"
-                >
+                [routerLink]="['/client', client['id'], 'edit']">
           Edit
         </button>
       </div>
     </div>
-
   </div>
 </div>
-
-
-
-
 <div class="accountInfo">
   <div class="card  accCard" *ngFor="let element of client['accData']">
-    <app-account-detail [client]="element"
-                      [id]="client['id']"></app-account-detail>
+    <app-account-detail [client]="element" [id]="client['id']"></app-account-detail>
   </div>
 </div>
-
-
-
 </div>
-
-
-
-<!-- </div> -->
 
 <div class="alert alert-danger"
      *ngIf="">

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { finalize, map, tap } from 'rxjs/operators';
+import { finalize, map } from 'rxjs/operators';
 import { LoadingService } from 'src/app/services/loading.service';
 import { PersonalDataService } from 'src/app/services/personalData.service';
 
@@ -35,6 +35,7 @@ export class ClientListComponent
       map(([d, data]) => data)
     )
   }
+
   deleteClient(id: number) {
     this.personalDataService
       .deleteClient(id)
