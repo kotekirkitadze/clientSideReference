@@ -1,61 +1,90 @@
 {
   "clients": [
     {
-      "id": "11",
-      "name": "asasa",
-      "lastName": "sasaas",
-      "personalNumber": "532112532112",
-      "phoneNumber": "532112",
+      "id": "123123",
+      "name": "aa",
+      "lastName": "aaa",
+      "personalNumber": "598598598598598",
+      "phoneNumber": "598598598598598",
       "sex": "Male",
       "legalAddress": {
-        "country": "532112",
-        "city": "532112",
-        "streetAddress": "532112"
+        "country": "598598598598598",
+        "city": "598598598598598",
+        "streetAddress": "598598598598598"
       },
       "livingAddress": {
-        "country": "532112",
-        "city": "532112",
-        "streetAddress": "532112"
+        "country": "598598598598598",
+        "city": "598598598598598",
+        "streetAddress": "598598598598598"
       }
     },
     {
-      "id": "121212",
-      "name": "asasa",
-      "lastName": "asas",
-      "personalNumber": "532112532112",
-      "phoneNumber": "532112",
-      "sex": "Female",
+      "id": "121212121312121",
+      "name": "sa",
+      "lastName": "sa",
+      "personalNumber": "1212121212121",
+      "phoneNumber": "51212121212121",
+      "sex": "Male",
       "legalAddress": {
-        "country": "532112",
-        "city": "532112532112532112aa",
-        "streetAddress": "532112532112532112aa"
+        "country": "asa",
+        "city": "aa",
+        "streetAddress": "1212121212121"
       },
       "livingAddress": {
-        "country": "532112532112532112aa",
-        "city": "532112532112532112aa",
-        "streetAddress": "532112532112532112aa"
+        "country": "1212121212121",
+        "city": "1212121212121",
+        "streetAddress": "1212121212121"
+      }
+    },
+    {
+      "id": "88888",
+      "name": "kotiko",
+      "lastName": "kirkitadze",
+      "personalNumber": "18626262626",
+      "phoneNumber": "5562626",
+      "sex": "Male",
+      "legalAddress": {
+        "country": "6626addAccount",
+        "city": "addAccount",
+        "streetAddress": "addAccount"
+      },
+      "livingAddress": {
+        "country": "addAccount",
+        "city": "addAccount",
+        "streetAddress": "addAccount"
       }
     }
   ],
   "accounts": [
     {
-      "id": "11",
+      "id": "123123",
       "clientAccData": [
         {
-          "accountNumber": "532112532112",
-          "accountType": "current",
+          "accountNumber": "12121212",
+          "accountType": "economical",
+          "currency": "USD",
+          "accountStatus": "Acctive"
+        }
+      ]
+    },
+    {
+      "id": "121212121312121",
+      "clientAccData": [
+        {
+          "accountNumber": "qqqqqaaa",
+          "accountType": "economical",
           "currency": "GEL",
           "accountStatus": "Acctive"
         }
       ]
     },
     {
-      "id": "121212",
+      "id": "88888",
       "clientAccData": [
         {
-          "accountNumber": "asas",
+          "accountNumber": "sasaas",
           "accountType": "economical",
-          "currency": "USD",
+          "currency": "GEL",
           "accountStatus": "Acctive"
         }
       ]

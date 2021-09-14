@@ -23,11 +23,6 @@ export class ClientDetailComponent implements OnInit {
   activeRoute = +this.activatedRoute.snapshot.paramMap.get('id');
   forUpdateAccountData: any;
 
-
-  // private reflectionSubject = new BehaviorSubject<number>(1);
-  // reflectionAction$ = this.reflectionSubject.asObservable();
-
-
   fetch() {
     return this.personalDataService.getClient(
       this.activeRoute
@@ -40,26 +35,8 @@ export class ClientDetailComponent implements OnInit {
     )
   }
 
-
-
   clientWithAccountData$ = this.fetch()
 
-  // vm$ = combineLatest([
-  //   this.reflectionAction$,
-  //   this.personalDataService.getClient(
-  //     this.activeRoute
-  //   ).pipe(
-  //     tap(data => {
-  //       console.log(data)
-  //       this.forUpdateAccountData = data.accData
-  //     })
-  //   )
-  // ]).pipe(
-  //   map(([a, clientWithAcc]) => {
-  //     console.log(a)
-  //     return clientWithAcc
-  //   })
-  // )
 
   ngOnInit(): void {
 
@@ -68,7 +45,7 @@ export class ClientDetailComponent implements OnInit {
   deleteSelectedAccount(accountNumber) {
     let forUpdate: AccountNumber = {
       id: this.activeRoute,
-      clientAccData: this.forUpdateAccountData.filter(d => d.accNumber != accountNumber)
+      clientAccData: this.forUpdateAccountData.filter(d => d.accountNumber != accountNumber)
     }
     this.accountNumberService.deleteSelectedAccount(forUpdate).subscribe(
       d => {

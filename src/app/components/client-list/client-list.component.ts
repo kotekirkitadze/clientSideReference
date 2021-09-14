@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { finalize, map, tap } from 'rxjs/operators';
-import { Client } from 'src/app/models/client-model';
 import { LoadingService } from 'src/app/services/loading.service';
 import { PersonalDataService } from 'src/app/services/personalData.service';
 

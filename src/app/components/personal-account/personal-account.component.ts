@@ -6,34 +6,25 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { pipe } from 'rxjs';
-import { filter, finalize, map, tap } from 'rxjs/operators';
-import { AccountNumber, ClientAccData } from 'src/app/models/account-model';
+import { finalize, map, tap } from 'rxjs/operators';
+import { ClientAccData } from 'src/app/models/account-model';
 import { AccountNumberService } from 'src/app/services/account-number.service';
 import { LoadingService } from 'src/app/services/loading.service';
+import { PersonalAccountFacade } from './personal-account.facade';
 
-interface gg {
-
-  accountNumber: number;
-  accountType: any;
-  currency: any;
-  accountStatus: any;
-
-}
 
 @Component({
   selector: 'app-personal-account',
   templateUrl:
     './personal-account.component.html',
   styleUrls: ['./personal-account.component.css'],
+  providers: [PersonalAccountFacade]
 })
 export class PersonalAccountComponent
   implements OnInit {
-  constructor(private fb: FormBuilder,
-    private accountNumberService: AccountNumberService,
-    private router: Router,
-    private loadingService: LoadingService,
-    private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private facade: PersonalAccountFacade) { }
 
   clientAccountFormGroup: FormGroup;
   activeRoute = this.activatedRoute.snapshot.paramMap.get('id');
@@ -49,53 +40,14 @@ export class PersonalAccountComponent
   }
 
   getData() {
-    return this.accountNumberService.getAccountDataById(+this.activeRoute)
-      .pipe(
-        map(d => d.clientAccData.filter(c => c.accountNumber == this.activeOptionParam)),
-        tap(data => this.populateForm(data))
-      );
+    return this.facade.getData(this.activeRoute, this.activeOptionParam, this.clientAccountFormGroup);
   }
-
-  populateForm(data) {
-    this.clientAccountFormGroup.setControl("clientAccData", this.setExistingValue(data))
-  }
-
-  setExistingValue(val: ClientAccData[]): FormArray {
-    const formArray = new FormArray([]);
-    val.forEach(d => {
-      formArray.push(this.fb.group({
-        accountNumber: d.accountNumber,
-        accountType: d.accountType,
-        currency: d.currency,
-        accountStatus: d.accountStatus
-      }))
-    })
-    return formArray
-  }
-
-  buildForm(form?: any) {
-    this.clientAccountFormGroup = this.fb.group({
-      clientNumber: [{ value: this.activeRoute, disabled: true },
-      Validators.required
-      ],
-      clientAccData: this.fb.array([this.buildAccountForm()])
-    })
-  }
-
-  buildAccountForm(): FormGroup {
-    return this.fb.group({
-      accountNumber: [
-        '',
-        Validators.required
-      ],
-      accountType: ['', Validators.required],
-      currency: ['', Validators.required],
-      accountStatus: ['', Validators.required],
-    })
+  buildForm() {
+    this.clientAccountFormGroup = this.facade.buildForm(this.activeRoute)
   }
 
   AddForm() {
-    this.getForm.push(this.buildAccountForm())
+    this.getForm.push(this.facade.buildAccountForm())
   }
 
   removeAcc(i: number) {
@@ -106,47 +58,6 @@ export class PersonalAccountComponent
   }
 
   addAccount() {
-    if (this.clientAccountFormGroup.invalid) {
-      console.log('form is invalid')
-      return null
-    }
-
-
-    const formValue = this.clientAccountFormGroup?.getRawValue();
-    const nestedForm = this.clientAccountFormGroup?.get('clientAccData').value
-
-    const forPosting = {
-      id: formValue?.clientNumber,
-      clientAccData: nestedForm
-    }
-
-    if (this.detectCreation == "true") {
-      console.log("heyhey")
-      this.postNew(forPosting).subscribe((data => {
-        console.log('posted successfully', data);
-        this.clientAccountFormGroup.reset(this.clientAccountFormGroup.value);
-        this.router.navigate(['/welcome'])
-      }))
-    } else {
-      this.updateValue(forPosting).subscribe(data => {
-        console.log('updated successfully');
-        this.clientAccountFormGroup.reset(this.clientAccountFormGroup.value);
-        this.router.navigate(['/welcome'])
-      })
-    }
-  }
-
-  updateValue(forUpdate) {
-    return this.accountNumberService.updateSelectedAccount(forUpdate)
-  }
-
-  postNew(forNewPost) {
-    return this.accountNumberService.addAccountNumber(forNewPost)
-      .pipe(
-        finalize(() => {
-          this.loadingService.stop();
-
-        })
-      )
+    this.facade.addAccount(this.clientAccountFormGroup, this.detectCreation);
   }
 }
