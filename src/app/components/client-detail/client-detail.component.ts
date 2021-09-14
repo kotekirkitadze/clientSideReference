@@ -1,12 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, combineLatest, of, Subject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 import { finalize, map, tap } from 'rxjs/operators';
-import { AccountNumber } from 'src/app/models/account-model';
-import { AccountNumberService } from 'src/app/services/account-number.service';
 import { LoadingService } from 'src/app/services/loading.service';
-import { PersonalDataService } from 'src/app/services/personalData.service';
-
 @Component({
   selector: 'app-client-detail',
   templateUrl: './client-detail.component.html',
@@ -14,11 +10,8 @@ import { PersonalDataService } from 'src/app/services/personalData.service';
 })
 export class ClientDetailComponent implements OnInit, AfterViewInit {
 
-  constructor(private personalDataService: PersonalDataService,
-    private activatedRoute: ActivatedRoute,
-    private accountNumberService: AccountNumberService,
-    private loadingService: LoadingService,
-    private route: Router) {
+  constructor(private activatedRoute: ActivatedRoute,
+    private loadingService: LoadingService) {
     this.activatedRoute.data.subscribe(
       data => this.clientWithAccountData$ = of(data['resolvedClientData']).pipe(
         finalize(() => this.loadingService.stop()),

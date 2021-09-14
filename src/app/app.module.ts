@@ -16,7 +16,9 @@ import { PersonalAccountComponent } from './components/personal-account/personal
 import { PageNotFoundComponent } from './shell/header/page-not-found/page-not-found.component';
 import { ClientDetailComponent } from './components/client-detail/client-detail.component';
 import { SharedModule } from './shared/shared.module';
+import { ToastrModule } from 'ngx-toastr';
 // import { ClientListComponent } from './components/client-list/client-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,11 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

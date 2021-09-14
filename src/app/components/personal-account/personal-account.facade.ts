@@ -11,8 +11,7 @@ export class PersonalAccountFacade {
   constructor(private fb: FormBuilder,
     private accountNumberService: AccountNumberService,
     private router: Router,
-    private loadingService: LoadingService,
-    private activatedRoute: ActivatedRoute,) {
+    private loadingService: LoadingService) {
   }
 
 

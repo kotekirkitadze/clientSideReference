@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { combineLatest, Observable, of } from "rxjs";
-import { delay, filter, map, shareReplay, switchMap, tap } from "rxjs/operators";
+import { combineLatest, Observable } from "rxjs";
+import { delay, map, switchMap, tap } from "rxjs/operators";
 import { Client } from "../models/client-model";
 import { AccountNumberService } from "./account-number.service";
 import { LoadingService } from "./loading.service";
@@ -37,7 +37,7 @@ export class PersonalDataService {
   getClient(id: number): Observable<Client> {
     return this.http.get<Client>(`${this.apiUrl}/${id}`)
       .pipe(
-        // tap(() => this.loadingService.start()),
+        tap(() => this.loadingService.start()),
         switchMap(client => {
           return this.accountNumberService.getAccountDataById(client.id).pipe(
             map(accountData => {
@@ -48,13 +48,12 @@ export class PersonalDataService {
             })
           )
         }),
-        delay(2000),
-        tap(console.log)
+        tap(console.log),
       )
   }
 
   clients$ = this.http.get<Client[]>(this.apiUrl)
-  // accountData.filter(acc => acc.id == client.id).map(d => d.clientAccData)
+
 
   getAllClientsInfo() {
     return combineLatest([

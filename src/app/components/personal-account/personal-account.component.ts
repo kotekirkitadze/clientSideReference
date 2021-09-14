@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { finalize, map, tap } from 'rxjs/operators';
 import { ClientAccData } from 'src/app/models/account-model';
 import { AccountNumberService } from 'src/app/services/account-number.service';
@@ -24,7 +25,9 @@ export class PersonalAccountComponent
   implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
-    private facade: PersonalAccountFacade) { }
+    private facade: PersonalAccountFacade,
+    private toastr: ToastrService
+  ) { }
 
   clientAccountFormGroup: FormGroup;
   activeRoute = this.activatedRoute.snapshot.paramMap.get('id');
@@ -48,7 +51,9 @@ export class PersonalAccountComponent
   }
 
   AddForm() {
-    this.getForm.push(this.facade.buildAccountForm())
+    this.getForm.push(this.facade.buildAccountForm());
+    this.toastr.success("hiii");
+
   }
 
   removeAcc(i: number) {

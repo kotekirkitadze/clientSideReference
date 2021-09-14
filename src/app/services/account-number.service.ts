@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { delay, map, tap } from "rxjs/operators";
+import { delay, tap } from "rxjs/operators";
 import { AccountNumber } from "../models/account-model";
 import { LoadingService } from "./loading.service";
 
@@ -22,11 +22,11 @@ export class AccountNumberService {
   }
 
   deleteAccount(id: number) {
-    return this.http.delete<AccountNumber>(`${this.apiUrl}/${id}`)
+    return this.http.delete<AccountNumber>(`${this.apiUrl}/${id}`);
   }
 
   deleteSelectedAccount(upDateValue) {
-    return this.http.put<AccountNumber>(`${this.apiUrl}/${upDateValue.id}`, upDateValue)
+    return this.http.put<AccountNumber>(`${this.apiUrl}/${upDateValue.id}`, upDateValue);
   }
 
   getAccountData() {
@@ -34,12 +34,11 @@ export class AccountNumberService {
   }
 
   getAccountDataById(id: number) {
-    return this.http.get<AccountNumber>(`${this.apiUrl}/${id}`)
-    // .pipe(map(d => d.clientAccData))
+    return this.http.get<AccountNumber>(`${this.apiUrl}/${id}`);
   }
 
   updateSelectedAccount(updatedValue: AccountNumber) {
-    return this.http.put<AccountNumber>(`${this.apiUrl}/${updatedValue.id}`, updatedValue)
+    return this.http.put<AccountNumber>(`${this.apiUrl}/${updatedValue.id}`, updatedValue);
   }
 
   accountData$ = this.http.get<AccountNumber[]>(this.apiUrl);

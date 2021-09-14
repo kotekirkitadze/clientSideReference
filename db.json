@@ -53,6 +53,42 @@
         "city": "addAccount",
         "streetAddress": "addAccount"
       }
+    },
+    {
+      "id": "112233",
+      "name": "asasa",
+      "lastName": "asasa",
+      "personalNumber": "112233112233",
+      "phoneNumber": "5112233",
+      "sex": "",
+      "legalAddress": {
+        "country": "112233",
+        "city": "112233",
+        "streetAddress": "112233"
+      },
+      "livingAddress": {
+        "country": "112233",
+        "city": "112233",
+        "streetAddress": "112233"
+      }
+    },
+    {
+      "id": "1212121312",
+      "name": "as",
+      "lastName": "asa",
+      "personalNumber": "112233112233",
+      "phoneNumber": "5112233",
+      "sex": "Male",
+      "legalAddress": {
+        "country": "112233",
+        "city": "112233",
+        "streetAddress": "112233"
+      },
+      "livingAddress": {
+        "country": "112233",
+        "city": "112233",
+        "streetAddress": "112233"
+      }
     }
   ],
   "accounts": [
@@ -85,6 +121,17 @@
           "accountNumber": "sasaas",
           "accountType": "economical",
           "currency": "GEL",
+          "accountStatus": "Acctive"
+        }
+      ]
+    },
+    {
+      "id": "112233",
+      "clientAccData": [
+        {
+          "accountNumber": "saaaaaaaaaa",
+          "accountType": "economical",
+          "currency": "USD",
           "accountStatus": "Acctive"
         }
       ]
